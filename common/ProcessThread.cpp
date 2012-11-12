@@ -20,7 +20,7 @@ void ProcessThread::start()
 	if( m_thread == NULL)
 	{
 		m_thread = new boost::thread( boost::bind(
-			&ProcessThread::processBody, this ) );
+			&ProcessThread::body, this ) );
 
 
 		// This also works but I don't know why. (Where 'this' is, should be
