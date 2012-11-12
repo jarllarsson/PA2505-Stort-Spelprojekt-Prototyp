@@ -11,6 +11,9 @@ private:
 	int m_id;
 	static int nextId;
 
+	// TODO:
+	// add a private message queue.
+
 public:
 	Process();
 	virtual ~Process();
@@ -19,6 +22,10 @@ public:
 	void stop();
 	void restart();
 	const int getId() const;
+
+	// TODO:
+	// public send(event). Send a message/event to the process.
+	// protected receive(event). Called when message is read.
 
 	virtual void processBody() = 0;
 

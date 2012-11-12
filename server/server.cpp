@@ -9,6 +9,8 @@ using namespace std;
 
 using namespace boost::asio::ip;
 
+#include "TcpListenerProcess.h"
+
 boost::mutex mutex;
 
 void acceptFunction( boost::asio::io_service* p_ioService,
@@ -32,20 +34,26 @@ void acceptFunction( boost::asio::io_service* p_ioService,
 
 int main()
 {
-	vector<tcp::socket> sockets;
+//	vector<tcp::socket> sockets;
+//
+//	// io service:
+//	boost::asio::io_service ioService;
+//
+//	// acceptor
+//	tcp::acceptor acceptor( ioService, tcp::endpoint(tcp::v4(), 1337) );
+//
+//	boost::thread acceptThread( &acceptFunction, &ioService, &acceptor, &sockets );
+//	acceptThread.join();
+//
+//	cout << "accepted";
 
-	// io service:
-	boost::asio::io_service ioService;
-
-	// acceptor
-	tcp::acceptor acceptor( ioService, tcp::endpoint(tcp::v4(), 1337) );
-
-	boost::thread acceptThread( &acceptFunction, &ioService, &acceptor, &sockets );
-	acceptThread.join();
-
-	cout << "accepted";
+	Process* proc = new TcpListenerProcess();
+	proc->start();
 
 	cin.get();
+
+	proc->stop();
+	delete proc;
 
 	return 0;
 }
