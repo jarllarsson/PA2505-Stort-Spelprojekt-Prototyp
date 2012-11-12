@@ -5,7 +5,6 @@ using namespace std;
 
 #include <boost\asio.hpp>
 #include <boost\array.hpp>
-#include <boost\thread.hpp>
 
 using namespace boost::asio::ip;
 
@@ -34,23 +33,23 @@ void acceptFunction( boost::asio::io_service* p_ioService,
 
 int main()
 {
-//	vector<tcp::socket> sockets;
-//
-//	// io service:
-//	boost::asio::io_service ioService;
-//
-//	// acceptor
-//	tcp::acceptor acceptor( ioService, tcp::endpoint(tcp::v4(), 1337) );
-//
-//	boost::thread acceptThread( &acceptFunction, &ioService, &acceptor, &sockets );
-//	acceptThread.join();
-//
-//	cout << "accepted";
+	vector<tcp::socket> sockets;
 
-	Process* proc = new TcpListenerProcess();
+	// io service:
+	boost::asio::io_service ioService;
+
+	// acceptor
+	tcp::acceptor acceptor( ioService, tcp::endpoint(tcp::v4(), 1337) );
+
+	boost::thread acceptThread( &acceptFunction, &ioService, &acceptor, &sockets );
+	acceptThread.join();
+
+	cout << "accepted";
+
+	ProcessThread* proc = new TcpListenerProcess();
 	proc->start();
 
-	cin.get();
+	std::cin.get();
 
 	proc->stop();
 	delete proc;

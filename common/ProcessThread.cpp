@@ -1,26 +1,26 @@
-#include "Process.h"
+#include "ProcessThread.h"
 
-int Process::nextId = 0;
+int ProcessThread::nextId = 0;
 
-Process::Process()
+ProcessThread::ProcessThread()
 {
 	m_thread = NULL;
 	m_id = nextId;
 	nextId++;
 }
 
-Process::~Process()
+ProcessThread::~ProcessThread()
 {
 	stop();
 	nextId--;
 }
 
-void Process::start()
+void ProcessThread::start()
 {
 	if( m_thread == NULL)
 	{
 		m_thread = new boost::thread( boost::bind(
-			&Process::processBody, this ) );
+			&ProcessThread::processBody, this ) );
 
 
 		// This also works but I don't know why. (Where 'this' is, should be
@@ -30,7 +30,7 @@ void Process::start()
 
 }
 
-void Process::stop()
+void ProcessThread::stop()
 {
 	if( m_thread )
 	{
@@ -42,13 +42,13 @@ void Process::stop()
 	}
 }
 
-void Process::restart()
+void ProcessThread::restart()
 {
 	stop();
 	start();
 }
 
-const int Process::getId() const
+const int ProcessThread::getId() const
 {
 	return m_id;
 }

@@ -4,7 +4,10 @@
 #include <boost\thread.hpp>
 #include <boost\bind.hpp>
 
-class Process
+#include <boost\asio.hpp>
+#include <boost\array.hpp>
+
+class ProcessThread
 {
 private:
 	boost::thread* m_thread;
@@ -15,8 +18,8 @@ private:
 	// add a private message queue.
 
 public:
-	Process();
-	virtual ~Process();
+	ProcessThread();
+	virtual ~ProcessThread();
 
 	void start();
 	void stop();

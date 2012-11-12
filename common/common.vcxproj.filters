@@ -13,5 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Process">
+      <UniqueIdentifier>{9997aac3-959f-407d-8c73-b7ef638c41a3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ProcessThread.h">
+      <Filter>Process</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ProcessThread.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
