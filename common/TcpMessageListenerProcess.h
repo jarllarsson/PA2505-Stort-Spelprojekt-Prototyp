@@ -20,6 +20,8 @@ public:
 		boost::asio::io_service* p_ioService );
 	virtual ~TcpMessageListenerProcess();
 
+	void body();
+
 };
 
 #endif

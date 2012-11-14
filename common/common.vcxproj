@@ -79,9 +79,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ProcessThread.cpp" />
+    <ClCompile Include="TcpMessageListenerProcess.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ProcessThread.h" />
+    <ClInclude Include="TcpMessageListenerProcess.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
