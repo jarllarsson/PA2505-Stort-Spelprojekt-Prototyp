@@ -28,4 +28,6 @@ void TcpMessageListenerProcess::body()
 		data, bufferSize ) );
 
 	cout << "Received: " << data << endl;
+
+	delete[] data;
 }

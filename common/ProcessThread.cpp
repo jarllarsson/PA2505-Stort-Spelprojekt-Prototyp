@@ -52,3 +52,13 @@ const int ProcessThread::getId() const
 {
 	return m_id;
 }
+
+void ProcessThread::interrupt()
+{
+	if( m_thread )
+	{
+		m_thread->interrupt();
+		delete m_thread;
+		m_thread = NULL;
+	}
+}

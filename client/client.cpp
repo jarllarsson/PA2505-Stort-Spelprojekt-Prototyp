@@ -3,6 +3,8 @@
 #include <boost\asio.hpp>
 #include <boost\array.hpp>
 
+#include <TcpMessageListenerProcess.h>
+
 using namespace std;
 using namespace boost::asio::ip;
 
@@ -44,10 +46,15 @@ int main()
 	{
 		throw boost::system::system_error( error );
 	}
-	
+	else
+	{
+		ProcessThread* messageListener = new TcpMessageListenerProcess( &socket, &ioService );
+		messageListener->start();
 
+		cin.get();
 
-
+		messageListener->interrupt();
+	}
 
 
 

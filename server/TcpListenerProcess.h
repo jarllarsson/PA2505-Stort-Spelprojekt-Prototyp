@@ -6,6 +6,7 @@
 
 #include <ProcessThread.h>
 #include <iostream>
+#include <string>
 
 using namespace boost::asio::ip;
 using namespace std;
@@ -25,7 +26,8 @@ public:
 	void body();
 
 private:
-	void acceptConnection(int p_port);
+	void acceptConnection( int p_port );
+	void sendWelcomeMessage( string p_message );
 
 };
 

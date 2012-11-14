@@ -24,6 +24,7 @@ public:
 	void stop();
 	void restart();
 	const int getId() const;
+	void interrupt();
 
 	// TODO:
 	// public send(event). Send a message/event to the process.
