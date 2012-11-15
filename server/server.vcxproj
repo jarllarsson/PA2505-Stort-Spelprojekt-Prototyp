@@ -78,10 +78,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TcpListenerProcess.cpp" />
+    <ClCompile Include="TcpServerApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TcpListenerProcess.h" />
-    <ClInclude Include="TcpServer.h" />
+    <ClInclude Include="TcpServerApplication.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\common\common.vcxproj">

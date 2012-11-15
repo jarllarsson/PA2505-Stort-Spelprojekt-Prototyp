@@ -18,13 +18,13 @@ TcpListenerProcess::~TcpListenerProcess()
 void TcpListenerProcess::body()
 {
 
-	cout << "Hello from within the TcpListenerProcess' body\n";
-
-	acceptConnection( 1337 );
-
-	cout << "Accepted.\n";
-
-	sendWelcomeMessage( "*WelcomeMessage*\n" );
+//	cout << "Hello from within the TcpListenerProcess' body\n";
+//
+//	acceptConnection( 1337 );
+//
+//	cout << "Accepted.\n";
+//
+//	sendWelcomeMessage( "*WelcomeMessage*\n" );
 }
 
 void TcpListenerProcess::acceptConnection(int p_port)

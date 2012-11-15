@@ -8,6 +8,9 @@
     <Filter Include="Process">
       <UniqueIdentifier>{97d343b7-10ed-4366-90aa-41776447cb95}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ServerApp">
+      <UniqueIdentifier>{9b15ff31-94a9-496b-b637-c938daf5fac7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TcpListenerProcess.cpp">
@@ -16,11 +19,16 @@
     <ClCompile Include="main.cpp">
       <Filter>Entry</Filter>
     </ClCompile>
+    <ClCompile Include="TcpServerApplication.cpp">
+      <Filter>ServerApp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TcpServer.h" />
     <ClInclude Include="TcpListenerProcess.h">
       <Filter>Process</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpServerApplication.h">
+      <Filter>ServerApp</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

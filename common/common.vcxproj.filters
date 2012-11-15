@@ -19,7 +19,10 @@
     <Filter Include="Lists">
       <UniqueIdentifier>{274f3bea-7d21-4bfa-8d87-bd14b3ec95c2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Process\ProcessEvent">
+    <Filter Include="Process\Safe Messaging">
+      <UniqueIdentifier>{b24319ed-81d3-4a46-b653-cd5eac21eb8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Process\Safe Messaging\ProcessEvent">
       <UniqueIdentifier>{157c40a1-ae43-4270-9e68-fa81918d0259}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -33,11 +36,11 @@
     <ClInclude Include="QueueList.h">
       <Filter>Lists</Filter>
     </ClInclude>
-    <ClInclude Include="ThreadSafeMessaging.h">
-      <Filter>Process</Filter>
-    </ClInclude>
     <ClInclude Include="ProcessMessage.h">
-      <Filter>Process\ProcessEvent</Filter>
+      <Filter>Process\Safe Messaging\ProcessEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadSafeMessaging.h">
+      <Filter>Process\Safe Messaging</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -48,7 +51,7 @@
       <Filter>Process</Filter>
     </ClCompile>
     <ClCompile Include="ThreadSafeMessaging.cpp">
-      <Filter>Process</Filter>
+      <Filter>Process\Safe Messaging</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
