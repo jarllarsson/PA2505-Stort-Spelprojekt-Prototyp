@@ -83,7 +83,7 @@
     <ClCompile Include="ThreadSafeMessaging.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ProcessEvent.h" />
+    <ClInclude Include="ProcessMessage.h" />
     <ClInclude Include="ProcessThread.h" />
     <ClInclude Include="QueueList.h" />
     <ClInclude Include="TcpMessageListenerProcess.h" />

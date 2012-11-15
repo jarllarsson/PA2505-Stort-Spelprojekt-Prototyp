@@ -72,6 +72,7 @@ int main()
 		}
 
 		messageListener->stop();
+		delete messageListener;
 	}
 
 	return 0;

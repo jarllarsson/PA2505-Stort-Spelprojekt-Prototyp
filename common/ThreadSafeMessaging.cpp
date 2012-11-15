@@ -8,23 +8,71 @@ ThreadSafeMessaging::~ThreadSafeMessaging()
 {
 	m_mutex.lock();
 
-	while( m_eventQueue.length() > 0 )
+	while( m_messageQueue.length() > 0 )
 	{
-		if( m_eventQueue.front() )
+		if( m_messageQueue.front() )
 		{
-			delete m_eventQueue.front();
-			m_eventQueue.popFront();
+			delete m_messageQueue.front();
+			m_messageQueue.popFront();
 		}
 	}
 
 	m_mutex.unlock();
 }
 
-void ThreadSafeMessaging::sendEvent( ProcessEvent* p_event )
+void ThreadSafeMessaging::putMessage( ProcessMessage* p_message )
 {
+	if( p_message )
+	{
+		m_mutex.lock();
+
+		m_messageQueue.pushBack( p_message );
+
+		m_mutex.unlock();
+	}
+}
+
+ProcessMessage* ThreadSafeMessaging::popMessage()
+{
+	ProcessMessage* message = NULL;
+
 	m_mutex.lock();
 
-	m_eventQueue.pushBack( p_event );
+
+	message = m_messageQueue.popFront();
 
 	m_mutex.unlock();
+
+
+	return message;
+}
+
+QueueList< ProcessMessage* > ThreadSafeMessaging::getMessages()
+{
+	QueueList< ProcessMessage* > messages;
+
+
+	m_mutex.lock();
+
+	messages = m_messageQueue;
+
+	m_mutex.unlock();
+
+
+	return messages;
+}
+
+unsigned int ThreadSafeMessaging::getMessagesAmount()
+{
+	unsigned int messagesAmount = 0;
+
+
+	m_mutex.lock();
+
+	messagesAmount = m_messageQueue.length();
+	
+	m_mutex.unlock();
+
+
+	return messagesAmount;
 }

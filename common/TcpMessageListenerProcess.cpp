@@ -51,12 +51,8 @@ void TcpMessageListenerProcess::body()
 //
 //	// Don't do this here...
 //	delete[] m_asyncData;
-}
 
-//void TcpMessageListenerProcess::handleReceive( boost::system::error_code e )
-//{
-//	cout << "INSIDE THE CALLBACK OMG.\n";
-//}
+}
 
 void TcpMessageListenerProcess::handleReceive(const boost::system::error_code& error,
 		size_t bytes_transferred)

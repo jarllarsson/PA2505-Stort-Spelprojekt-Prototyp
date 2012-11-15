@@ -76,7 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="server.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="TcpListenerProcess.cpp" />
   </ItemGroup>
   <ItemGroup>

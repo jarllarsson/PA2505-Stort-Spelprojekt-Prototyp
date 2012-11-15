@@ -10,11 +10,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="server.cpp">
-      <Filter>Entry</Filter>
-    </ClCompile>
     <ClCompile Include="TcpListenerProcess.cpp">
       <Filter>Process</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Entry</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

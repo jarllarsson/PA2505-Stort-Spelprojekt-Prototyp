@@ -1,10 +1,10 @@
-#ifndef PROCESS_EVENT_H
-#define PROCESS_EVENT_H
+#ifndef PROCESS_MESSAGE_H
+#define PROCESS_MESSAGE_H
 
 #include <string>
 using namespace std;
 
-class ProcessEvent
+class ProcessMessage
 {
 public:
 	string message; // Let's go with string at first.

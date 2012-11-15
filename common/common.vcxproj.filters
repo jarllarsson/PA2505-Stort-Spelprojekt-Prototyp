@@ -33,11 +33,11 @@
     <ClInclude Include="QueueList.h">
       <Filter>Lists</Filter>
     </ClInclude>
-    <ClInclude Include="ProcessEvent.h">
-      <Filter>Process\ProcessEvent</Filter>
-    </ClInclude>
     <ClInclude Include="ThreadSafeMessaging.h">
       <Filter>Process</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessMessage.h">
+      <Filter>Process\ProcessEvent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
