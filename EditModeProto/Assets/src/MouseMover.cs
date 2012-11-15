@@ -1,11 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
-// Plane movement using the mouse
-// Distance attenuated from eye
+///
+/// Plane movement using the mouse
+/// Distance attenuated from eye
+/// 
 public class MouseMover : PlaneMover
 {
-    public Transform m_eye;
 	// Use this for initialization
 	void Start () 
     {
@@ -15,7 +16,11 @@ public class MouseMover : PlaneMover
 	// Update is called once per frame
 	void Update () 
     {
-        m_move.x = Input.GetAxis("Mouse X") * m_mod.x;
-        m_move.y = Input.GetAxis("Mouse Y") * m_mod.y;
+        Vector3 t = new Vector3(Input.GetAxis("Mouse X") * m_mod.x,
+                                Input.GetAxis("Mouse Y") * m_mod.y,
+                                0.0f);
+        t = m_view.InverseTransformDirection(t); // transform movement by eye matrix
+        m_move.x = t.x;
+        m_move.y = t.y;
 	}
 }
