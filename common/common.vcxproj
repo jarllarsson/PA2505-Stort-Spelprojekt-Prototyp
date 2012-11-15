@@ -82,7 +82,9 @@
     <ClCompile Include="TcpMessageListenerProcess.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ProcessEvent.h" />
     <ClInclude Include="ProcessThread.h" />
+    <ClInclude Include="QueueList.h" />
     <ClInclude Include="TcpMessageListenerProcess.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

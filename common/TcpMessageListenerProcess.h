@@ -4,6 +4,8 @@
 #include <boost\asio.hpp>
 #include <boost\array.hpp>
 
+#include <string>
+#include "QueueList.h"
 #include "ProcessThread.h"
 
 using namespace boost::asio::ip;
@@ -14,6 +16,12 @@ class TcpMessageListenerProcess: public ProcessThread
 private:
 	tcp::socket* m_activeSocket;
 	boost::asio::io_service* m_ioService;
+//	boost::asio::io_service m_ioService; // Try and use own io_service with "run_one()".
+	QueueList<string> m_packetQueue;
+
+	char* m_asyncData;
+	unsigned int m_asyncDataLength;
+	unsigned int m_asyncBufferSize;
 
 public:
 	TcpMessageListenerProcess( tcp::socket* p_activeSocket,
@@ -22,6 +30,11 @@ public:
 
 	void body();
 
+private:
+//	void handleReceive( boost::system::error_code e );
+	
+	void handleReceive(const boost::system::error_code& error,
+		size_t bytes_transferred);
 };
 
 #endif

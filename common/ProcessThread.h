@@ -8,10 +8,20 @@
 
 class ProcessThread
 {
+protected:
+	// HACK: should be handled with an exit event instead. (m_running should only
+	// be in super classes.
+	bool m_running;
+
+	// HACK: mutex should be in base class only. Only events/messages should be
+	// handled in super classes.
+	boost::mutex m_mutex;
+
 private:
 	boost::thread* m_thread;
 	int m_id;
 	static int nextId;
+
 
 	// TODO:
 	// add a private message queue.

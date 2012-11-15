@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 
 #include <boost\asio.hpp>
 #include <boost\array.hpp>
@@ -11,6 +12,8 @@ using namespace boost::asio::ip;
 
 int main()
 {
+	_CrtSetDbgFlag ( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
+
 	// io service:
 	boost::asio::io_service ioService;
 	
@@ -18,7 +21,7 @@ int main()
 
 	// resolver:
 	tcp::resolver tcpResolver( ioService );
-	tcp::resolver::query tcpQuery( "127.0.0.1", "1337" );
+	tcp::resolver::query tcpQuery( "127.0.0.1", "13" );
 
 	tcp::resolver::iterator endpointIterator;
 	tcp::resolver::iterator end;
@@ -30,6 +33,7 @@ int main()
 
 	// socket:
 	tcp::socket socket( ioService );
+
 	boost::system::error_code error;
 	error = boost::asio::error::host_not_found;
 
@@ -48,17 +52,27 @@ int main()
 	}
 	else
 	{
+		tcp::no_delay option( true );
+		socket.set_option( option );
+		tcp::socket::non_blocking_io nonBlocking( true );
+		socket.io_control( nonBlocking );
+
 		ProcessThread* messageListener = new TcpMessageListenerProcess( &socket, &ioService );
 		messageListener->start();
 
-		cin.get();
+		while( true )
+		{
+			char inputCharacter = _getch();
 
-		messageListener->interrupt();
+			if( inputCharacter == 'q' )
+			{
+				ioService.stop();
+				break;
+			}
+		}
+
+		messageListener->stop();
 	}
-
-
-
-	cin.get();
 
 	return 0;
 }

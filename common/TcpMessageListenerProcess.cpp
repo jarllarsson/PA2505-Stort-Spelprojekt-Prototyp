@@ -6,6 +6,7 @@ TcpMessageListenerProcess::TcpMessageListenerProcess(
 {
 	m_activeSocket = p_activeSocket;
 	m_ioService = p_ioService;
+//	m_ioService.run_one();
 }
 
 TcpMessageListenerProcess::~TcpMessageListenerProcess()
@@ -14,20 +15,51 @@ TcpMessageListenerProcess::~TcpMessageListenerProcess()
 
 void TcpMessageListenerProcess::body()
 {
-	unsigned int length = 0;
-	unsigned int bufferSize = 100;
-	char* data = new char[bufferSize];
+	m_asyncDataLength = 0;
+	m_asyncBufferSize = 100;
+	m_asyncData = new char[m_asyncBufferSize];
 
-	for(unsigned int i = 0; i < bufferSize; i++)
+	for(unsigned int i = 0; i < m_asyncBufferSize; i++)
 	{
-		data[i] = 0;
+		m_asyncData[i] = 0;
 	}
 
-	// Blocking receive on socket.
-	length = m_activeSocket->receive( boost::asio::buffer(
-		data, bufferSize ) );
+	boost::system::error_code error;
 
-	cout << "Received: " << data << endl;
+	m_activeSocket->async_receive(
+		boost::asio::buffer( m_asyncData, m_asyncBufferSize ),
+		boost::bind( &TcpMessageListenerProcess::handleReceive, this,
+		error,
+		boost::asio::placeholders::bytes_transferred));
 
-	delete[] data;
+	m_ioService->run();
+
+	// HACK: should give sync problems... Doesn't work using mutex for some reason.
+	while( m_running )
+	{
+	}
+//	// Blocking receive on socket.
+//	m_asyncDataLength = m_activeSocket->receive( boost::asio::buffer(
+//		m_asyncData, m_asyncBufferSize ) );
+//
+//	cout << "Received: " << m_asyncData << endl;
+//	m_packetQueue.pushBack( string(m_asyncData) );
+//
+//	// Send back to server (for the lulz)
+//	m_activeSocket->send( boost::asio::buffer(
+//		m_asyncData, m_asyncDataLength ) );
+//
+//
+//	// Don't do this here...
+//	delete[] m_asyncData;
+}
+
+//void TcpMessageListenerProcess::handleReceive( boost::system::error_code e )
+//{
+//	cout << "INSIDE THE CALLBACK OMG.\n";
+//}
+
+void TcpMessageListenerProcess::handleReceive(const boost::system::error_code& error,
+		size_t bytes_transferred)
+{
 }

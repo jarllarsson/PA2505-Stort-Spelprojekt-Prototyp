@@ -16,6 +16,12 @@
     <Filter Include="Process">
       <UniqueIdentifier>{9997aac3-959f-407d-8c73-b7ef638c41a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Lists">
+      <UniqueIdentifier>{274f3bea-7d21-4bfa-8d87-bd14b3ec95c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Process\ProcessEvent">
+      <UniqueIdentifier>{157c40a1-ae43-4270-9e68-fa81918d0259}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ProcessThread.h">
@@ -23,6 +29,12 @@
     </ClInclude>
     <ClInclude Include="TcpMessageListenerProcess.h">
       <Filter>Process</Filter>
+    </ClInclude>
+    <ClInclude Include="QueueList.h">
+      <Filter>Lists</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessEvent.h">
+      <Filter>Process\ProcessEvent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
