@@ -16,7 +16,6 @@ class TcpMessageListenerProcess: public ProcessThread
 private:
 	tcp::socket* m_activeSocket;
 	boost::asio::io_service* m_ioService;
-//	boost::asio::io_service m_ioService; // Try and use own io_service with "run_one()".
 	QueueList<string> m_packetQueue;
 
 	char* m_asyncData;

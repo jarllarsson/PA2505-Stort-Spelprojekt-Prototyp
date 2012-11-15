@@ -21,7 +21,7 @@ int main()
 
 	// resolver:
 	tcp::resolver tcpResolver( ioService );
-	tcp::resolver::query tcpQuery( "127.0.0.1", "13" );
+	tcp::resolver::query tcpQuery( "127.0.0.1", "1337" );
 
 	tcp::resolver::iterator endpointIterator;
 	tcp::resolver::iterator end;

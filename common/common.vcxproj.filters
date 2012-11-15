@@ -36,12 +36,18 @@
     <ClInclude Include="ProcessEvent.h">
       <Filter>Process\ProcessEvent</Filter>
     </ClInclude>
+    <ClInclude Include="ThreadSafeMessaging.h">
+      <Filter>Process</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ProcessThread.cpp">
       <Filter>Process</Filter>
     </ClCompile>
     <ClCompile Include="TcpMessageListenerProcess.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadSafeMessaging.cpp">
       <Filter>Process</Filter>
     </ClCompile>
   </ItemGroup>

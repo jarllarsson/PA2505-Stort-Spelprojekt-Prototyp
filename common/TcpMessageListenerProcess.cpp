@@ -6,7 +6,6 @@ TcpMessageListenerProcess::TcpMessageListenerProcess(
 {
 	m_activeSocket = p_activeSocket;
 	m_ioService = p_ioService;
-//	m_ioService.run_one();
 }
 
 TcpMessageListenerProcess::~TcpMessageListenerProcess()
@@ -32,7 +31,7 @@ void TcpMessageListenerProcess::body()
 		error,
 		boost::asio::placeholders::bytes_transferred));
 
-	m_ioService->run();
+	m_ioService->run_one();
 
 	// HACK: should give sync problems... Doesn't work using mutex for some reason.
 	while( m_running )
@@ -62,4 +61,8 @@ void TcpMessageListenerProcess::body()
 void TcpMessageListenerProcess::handleReceive(const boost::system::error_code& error,
 		size_t bytes_transferred)
 {
+	cout << m_asyncData << endl;
+
+	m_activeSocket->send( boost::asio::buffer(
+		m_asyncData, m_asyncBufferSize ) );
 }

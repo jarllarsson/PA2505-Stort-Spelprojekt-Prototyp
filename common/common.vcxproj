@@ -80,12 +80,14 @@
   <ItemGroup>
     <ClCompile Include="ProcessThread.cpp" />
     <ClCompile Include="TcpMessageListenerProcess.cpp" />
+    <ClCompile Include="ThreadSafeMessaging.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ProcessEvent.h" />
     <ClInclude Include="ProcessThread.h" />
     <ClInclude Include="QueueList.h" />
     <ClInclude Include="TcpMessageListenerProcess.h" />
+    <ClInclude Include="ThreadSafeMessaging.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
