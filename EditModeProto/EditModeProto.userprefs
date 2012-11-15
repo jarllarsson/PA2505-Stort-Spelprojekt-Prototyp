@@ -1,8 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\src\OrbitCam.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\src\Orbiter.cs">
     <Files>
-      <File FileName="Assets\src\OrbitCam.cs" Line="1" Column="1" />
+      <File FileName="Assets\src\MouseMover.cs" Line="15" Column="1" />
+      <File FileName="Assets\src\PlaneMover.cs" Line="1" Column="1" />
+      <File FileName="Assets\src\Orbiter.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
