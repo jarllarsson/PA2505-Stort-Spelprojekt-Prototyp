@@ -9,6 +9,7 @@
 #include <ProcessMessage.h>
 #include <iostream>
 #include <string>
+#include <sstream>
 
 using namespace boost::asio::ip;
 using namespace std;
@@ -26,14 +27,19 @@ private:
 	bool m_running;
 
 public:
-	TcpListenerProcess( ThreadSafeMessaging* p_parent );
+	TcpListenerProcess( ThreadSafeMessaging* p_parent, int p_port );
 	~TcpListenerProcess();
 
 	void body();
 
 private:
-	void acceptConnection( int p_port );
-	void sendWelcomeMessage( string p_message );
+
+	void startAccept();
+	void handleAccept();
+
+
+//	void acceptConnection( int p_port );
+//	void sendWelcomeMessage( string p_message );
 
 };
 

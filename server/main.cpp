@@ -15,20 +15,7 @@ int main()
 
 	app.run();
 
-//	ProcessThread* proc = new TcpListenerProcess();
-//	proc->start();
-//
-//	while( true )
-//	{
-//		int inputCharacter = _getch();
-//		if( inputCharacter == 'q' )
-//		{
-//			break;
-//		}
-//	}
-//
-//	proc->stop();
-//	delete proc;
+
 
 	return 0;
 }

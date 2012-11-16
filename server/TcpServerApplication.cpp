@@ -34,7 +34,7 @@ void TcpServerApplication::stop()
 
 void TcpServerApplication::init()
 {
-	m_tcpListenerProcess = new TcpListenerProcess( this );
+	m_tcpListenerProcess = new TcpListenerProcess( this, 1337 );
 	m_tcpListenerProcess->start();
 
 	m_tcpListenerProcessMessaging = 
@@ -43,23 +43,6 @@ void TcpServerApplication::init()
 
 void TcpServerApplication::update()
 {
-
-//	if( getMessagesAmount() > 0 )
-//	{
-//		 QueueList< ProcessMessage* > messages;
-//		 messages = getMessages();
-//
-//		 while( messages.length() > 0 )
-//		 {
-//			 ProcessMessage* message = messages.popFront();
-//
-//			 cout << "Message to TcpServerApplication: " <<
-//				 message->message << endl;
-//
-//			 delete message;
-//		 }
-//	}
-
 
 	while( getMessagesAmount() > 0 )
 	{
