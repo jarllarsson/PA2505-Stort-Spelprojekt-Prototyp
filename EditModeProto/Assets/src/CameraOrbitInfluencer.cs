@@ -8,6 +8,7 @@ public class CameraOrbitInfluencer : PlaneMoveInfluencer
 {
     public float m_sphereRadius = 4;
     public float m_speed = 0.2f;
+    public float m_borderStartRadSqr = 0.25f;
     public OrbitMouseMover m_cursorMover;
     public Vector3 transformToCursorStart;
 	// Use this for initialization
@@ -23,12 +24,17 @@ public class CameraOrbitInfluencer : PlaneMoveInfluencer
     {
         Vector3 transformToCursor = m_view.InverseTransformPoint(m_cursorMover.transform.position) - transformToCursorStart;
         transformToCursor /= m_sphereRadius; // -1.0 -> 1.0 range
-        float m3x = transformToCursor.x * transformToCursor.x * transformToCursor.x; // cubed to get a nice
-        float m3y = transformToCursor.y * transformToCursor.y * transformToCursor.y; // falloff (uneven for correct sign)
-        // Calc the movement amount
-        float sphx = (1.0f - Mathf.Abs(Mathf.Sin(m3x)));
-        float sphy = (1.0f - Mathf.Abs(Mathf.Sin(m3y)));
-        m_move.x = m3x * sphx * sphx * m_speed * m_mod.x;
-        m_move.y = m3y * sphy * sphy * m_speed * m_mod.y;
+        float sqrDist = transformToCursor.sqrMagnitude;
+        if (sqrDist > m_borderStartRadSqr)
+        {
+            // Movement within border, with falloff
+            float m3x = transformToCursor.x;
+            float m3y = transformToCursor.y;
+            float fallof = sqrDist - m_borderStartRadSqr;
+            m_move.x = m3x * m_speed * fallof * m_mod.x;
+            m_move.y = m3y * m_speed * fallof * m_mod.y;
+        }
+        else
+            m_move = Vector2.zero;
 	}
 }
