@@ -22,20 +22,33 @@ void TcpListenerProcess::body()
 
 	while( m_running )
 	{
-		if( getMessagesAmount() > 0 )
+
+//		if( getMessagesAmount() > 0 )
+//		{
+//			QueueList< ProcessMessage* > messages;
+//			messages = getMessages();
+//
+//			while( messages.length() > 0 )
+//			{
+//				ProcessMessage* message = messages.popFront();
+//
+//				if( message->message == "exit" )
+//					m_running = false;
+//
+//				delete message;
+//			}
+//		}
+
+
+
+		while( getMessagesAmount() > 0 )
 		{
-			QueueList< ProcessMessage* > messages;
-			messages = getMessages();
+			ProcessMessage* message = popMessage();
 
-			while( messages.length() > 0 )
-			{
-				ProcessMessage* message = messages.popFront();
+			 if( message->message == "exit" )
+				 m_running = false;
 
-				if( message->message == "exit" )
-					m_running = false;
-
-				delete message;
-			}
+			delete message;
 		}
 
 	}

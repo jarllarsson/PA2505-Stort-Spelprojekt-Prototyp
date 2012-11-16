@@ -43,23 +43,36 @@ void TcpServerApplication::init()
 
 void TcpServerApplication::update()
 {
-	if( getMessagesAmount() > 0 )
+
+//	if( getMessagesAmount() > 0 )
+//	{
+//		 QueueList< ProcessMessage* > messages;
+//		 messages = getMessages();
+//
+//		 while( messages.length() > 0 )
+//		 {
+//			 ProcessMessage* message = messages.popFront();
+//
+//			 cout << "Message to TcpServerApplication: " <<
+//				 message->message << endl;
+//
+//			 delete message;
+//		 }
+//	}
+
+
+	while( getMessagesAmount() > 0 )
 	{
-		 QueueList< ProcessMessage* > messages;
-		 messages = getMessages();
+		ProcessMessage* message = popMessage();
 
-		 while( messages.length() > 0 )
-		 {
-			 ProcessMessage* message = messages.popFront();
+		 cout << "Message to TcpServerApplication: " <<
+			message->message << endl;
 
-			 cout << "Message to TcpServerApplication: " <<
-				 message->message << endl;
-
-			 delete message;
-		 }
+		delete message;
 	}
 
-	if( kbhit() )
+
+	if( _kbhit() )
 	{
 		if( _getch() == 27 )
 		{
