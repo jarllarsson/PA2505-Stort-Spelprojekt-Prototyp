@@ -42,6 +42,14 @@ public:
 		}
 	}
 
+	void clear()
+	{
+		while(m_frontNode != NULL)
+		{
+			popFront();
+		}
+	}
+
 	void pushBack(T p_data)
 	{
 		if(m_frontNode == NULL)

@@ -9,7 +9,7 @@ class ThreadSafeMessaging
 {
 private:
 	QueueList< ProcessMessage* > m_messageQueue;
-	boost::mutex m_mutex;
+	boost::mutex m_guard;
 
 public:
 	ThreadSafeMessaging();

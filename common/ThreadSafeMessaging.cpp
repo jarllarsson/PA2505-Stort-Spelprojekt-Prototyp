@@ -6,7 +6,7 @@ ThreadSafeMessaging::ThreadSafeMessaging()
 
 ThreadSafeMessaging::~ThreadSafeMessaging()
 {
-	m_mutex.lock();
+	m_guard.lock();
 
 	while( m_messageQueue.length() > 0 )
 	{
@@ -17,18 +17,18 @@ ThreadSafeMessaging::~ThreadSafeMessaging()
 		}
 	}
 
-	m_mutex.unlock();
+	m_guard.unlock();
 }
 
 void ThreadSafeMessaging::putMessage( ProcessMessage* p_message )
 {
 	if( p_message )
 	{
-		m_mutex.lock();
+		m_guard.lock();
 
 		m_messageQueue.pushBack( p_message );
 
-		m_mutex.unlock();
+		m_guard.unlock();
 	}
 }
 
@@ -36,12 +36,12 @@ ProcessMessage* ThreadSafeMessaging::popMessage()
 {
 	ProcessMessage* message = NULL;
 
-	m_mutex.lock();
+	m_guard.lock();
 
 
 	message = m_messageQueue.popFront();
 
-	m_mutex.unlock();
+	m_guard.unlock();
 
 
 	return message;
@@ -52,11 +52,12 @@ QueueList< ProcessMessage* > ThreadSafeMessaging::getMessages()
 	QueueList< ProcessMessage* > messages;
 
 
-	m_mutex.lock();
+	m_guard.lock();
 
 	messages = m_messageQueue;
+	m_messageQueue.clear();
 
-	m_mutex.unlock();
+	m_guard.unlock();
 
 
 	return messages;
@@ -67,11 +68,11 @@ unsigned int ThreadSafeMessaging::getMessagesAmount()
 	unsigned int messagesAmount = 0;
 
 
-	m_mutex.lock();
+	m_guard.lock();
 
 	messagesAmount = m_messageQueue.length();
 	
-	m_mutex.unlock();
+	m_guard.unlock();
 
 
 	return messagesAmount;

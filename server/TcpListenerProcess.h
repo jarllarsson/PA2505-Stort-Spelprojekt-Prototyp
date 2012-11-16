@@ -5,22 +5,28 @@
 #include <boost\array.hpp>
 
 #include <ProcessThread.h>
+#include <ThreadSafeMessaging.h>
+#include <ProcessMessage.h>
 #include <iostream>
 #include <string>
 
 using namespace boost::asio::ip;
 using namespace std;
 
-class TcpListenerProcess: public ProcessThread
+class TcpListenerProcess: public ProcessThread,
+	public ThreadSafeMessaging
 {
 private:
 	tcp::socket* m_socket;
 	tcp::acceptor* m_acceptor;
 	boost::asio::io_service m_ioService;
 
+	ThreadSafeMessaging* m_parent;
+
+	bool m_running;
 
 public:
-	TcpListenerProcess();
+	TcpListenerProcess( ThreadSafeMessaging* p_parent );
 	~TcpListenerProcess();
 
 	void body();

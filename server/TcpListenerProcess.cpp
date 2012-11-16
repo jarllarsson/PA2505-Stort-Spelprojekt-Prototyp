@@ -1,11 +1,12 @@
 #include "TcpListenerProcess.h"
 
 
-TcpListenerProcess::TcpListenerProcess()
+TcpListenerProcess::TcpListenerProcess( ThreadSafeMessaging* p_parent )
 {
+	m_running = false;
 	m_socket = NULL;
 	m_acceptor = NULL;
-
+	m_parent = p_parent;
 }
 
 TcpListenerProcess::~TcpListenerProcess()
@@ -17,6 +18,27 @@ TcpListenerProcess::~TcpListenerProcess()
 
 void TcpListenerProcess::body()
 {
+	m_running = true;
+
+	while( m_running )
+	{
+		if( getMessagesAmount() > 0 )
+		{
+			QueueList< ProcessMessage* > messages;
+			messages = getMessages();
+
+			while( messages.length() > 0 )
+			{
+				ProcessMessage* message = messages.popFront();
+
+				if( message->message == "exit" )
+					m_running = false;
+
+				delete message;
+			}
+		}
+
+	}
 
 //	cout << "Hello from within the TcpListenerProcess' body\n";
 //
