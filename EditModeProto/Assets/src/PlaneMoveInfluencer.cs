@@ -3,7 +3,7 @@ using System.Collections;
 ///
 /// Base class for plane movement
 /// 
-public class PlaneMover : MonoBehaviour 
+public class PlaneMoveInfluencer : MonoBehaviour 
 {
     public Transform m_view;
     public Vector2 m_move; ///< Plane movement

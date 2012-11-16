@@ -14,10 +14,9 @@ public class Orbiter : MonoBehaviour
     };
     public Transform m_target; ///< Lookat target (center of sphere).
     public float m_radius; ///< Radius of sphere surface.
-    public float m_speed = 0.02f; ///< Movement speed.
     public ROTATEMODE m_rotateMode = ROTATEMODE.TRACKBALL;
 
-    public PlaneMover m_planeMover; ///< Movement influence.
+    public PlaneMoveInfluencer m_planeMoveInfluencer; ///< Movement influence.
     private Quaternion m_startRotation; ///< Initial rotation.
     private Quaternion m_rotation; ///< Current rotation. 
 
@@ -38,9 +37,9 @@ public class Orbiter : MonoBehaviour
 	void Update () 
     {
         if (m_rotateMode == ROTATEMODE.TURNTABLE)
-            m_movement += m_planeMover.m_move * m_speed; // For turntable; accumulate movement (in 2d space)
+            m_movement += m_planeMoveInfluencer.m_move; // For turntable; accumulate movement (in 2d space)
         else if (m_rotateMode == ROTATEMODE.TRACKBALL)
-            m_movement = m_planeMover.m_move * m_speed; // For trackball; set relative movement (in 2d space)
+            m_movement = m_planeMoveInfluencer.m_move; // For trackball; set relative movement (in 2d space)
 
         // Transform quaternion with movement vector
         m_rotation *= Quaternion.Euler(m_movement.y, m_movement.x, 0.0f);
