@@ -34,15 +34,22 @@ public:
 		m_length = 0;
 	}
 
-	~QueueList<T>()
+	QueueList<T>( const QueueList<T>& p_source )
 	{
-		while(m_frontNode != NULL)
+		m_frontNode = NULL;
+		m_backNode = NULL;
+		m_length = 0;
+
+		Node* nodeTraveller = p_source.m_frontNode;
+
+		for(unsigned int i = 0; i < p_source.m_length; i++)
 		{
-			popFront();
+			pushBack( nodeTraveller->data );
+			nodeTraveller = nodeTraveller->next;
 		}
 	}
 
-	QueueList<T>& operator=(const QueueList<T> &p_source)
+	QueueList<T>& operator=( const QueueList<T> &p_source )
 	{
 		clear();
 
@@ -55,6 +62,14 @@ public:
 		}
 
 		return *this;
+	}
+
+	~QueueList<T>()
+	{
+		while(m_frontNode != NULL)
+		{
+			popFront();
+		}
 	}
 
 	void clear()
