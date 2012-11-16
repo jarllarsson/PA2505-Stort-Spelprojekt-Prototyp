@@ -71,6 +71,8 @@ void TcpListenerProcess::acceptConnection(int p_port)
 	m_socket = new tcp::socket( m_ioService );
 
 	m_acceptor->accept( *m_socket );
+
+
 }
 
 void TcpListenerProcess::sendWelcomeMessage( string p_message )

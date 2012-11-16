@@ -44,11 +44,11 @@ public:
 
 	QueueList<T>& operator=(const QueueList<T> &p_source)
 	{
-		m_length = p_source.m_length;
+		clear();
 
 		Node* nodeTraveller = p_source.m_frontNode;
 
-		for(unsigned int i = 0; i < m_length; i++)
+		for(unsigned int i = 0; i < p_source.m_length; i++)
 		{
 			pushBack( nodeTraveller->data );
 			nodeTraveller = nodeTraveller->next;
