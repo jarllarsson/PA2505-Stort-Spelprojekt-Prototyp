@@ -1,6 +1,7 @@
 #include "TcpMessengerProcess.h"
 
 TcpMessengerProcess::TcpMessengerProcess(
+	ThreadSafeMessaging* p_parent,
 	tcp::socket* p_activeSocket,
 	boost::asio::io_service* p_ioService )
 {
@@ -10,6 +11,9 @@ TcpMessengerProcess::TcpMessengerProcess(
 
 TcpMessengerProcess::~TcpMessengerProcess()
 {
+	m_activeSocket->close();
+	delete m_activeSocket;
+	delete[] m_asyncData;
 }
 
 void TcpMessengerProcess::body()
@@ -55,8 +59,18 @@ void TcpMessengerProcess::body()
 void TcpMessengerProcess::handleReceive(const boost::system::error_code& error,
 		size_t bytes_transferred)
 {
-	cout << m_asyncData << endl;
+	if( error == boost::asio::error::eof )
+	{
+		cout << "Connection closed.\n";
+	}
+	else if( error )
+	{
+		cout << "Error: " << error.message();
+	}
+	else
+	{
 
-	m_activeSocket->send( boost::asio::buffer(
-		m_asyncData, m_asyncBufferSize ) );
+		cout << m_asyncData << endl;
+	}
+
 }

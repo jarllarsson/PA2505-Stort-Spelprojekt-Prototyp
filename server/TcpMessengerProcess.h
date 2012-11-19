@@ -26,7 +26,8 @@ private:
 	unsigned int m_asyncBufferSize;
 	
 public:
-	TcpMessengerProcess( tcp::socket* p_activeSocket,
+	TcpMessengerProcess( ThreadSafeMessaging* p_parent,
+		tcp::socket* p_activeSocket,
 		boost::asio::io_service* p_ioService );
 	virtual ~TcpMessengerProcess();
 

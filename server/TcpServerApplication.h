@@ -13,6 +13,7 @@
 #include <ProcessMessage.h>
 
 #include "TcpListenerProcess.h"
+#include "TcpMessengerProcess.h"
 
 using namespace std;
 using namespace boost::asio::ip;
@@ -21,7 +22,8 @@ class TcpServerApplication: public ThreadSafeMessaging
 {
 private:
 	boost::asio::io_service* m_ioService;
-	vector< tcp::socket* > m_clientSockets; // Replace this with "client-processes".
+	vector< TcpMessengerProcess* > m_messengerProcesses;
+
 
 	bool m_running;
 

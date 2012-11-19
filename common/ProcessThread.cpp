@@ -13,7 +13,6 @@ ProcessThread::ProcessThread()
 ProcessThread::~ProcessThread()
 {
 	stop();
-	nextId--;
 }
 
 void ProcessThread::start()
@@ -23,10 +22,6 @@ void ProcessThread::start()
 		m_thread = new boost::thread( boost::bind(
 			&ProcessThread::body, this ) );
 
-
-		// This also works but I don't know why. (Where 'this' is, should be
-		// the first argument).
-//		m_thread = new boost::thread( &Process::processBody, this );
 	}
 
 }

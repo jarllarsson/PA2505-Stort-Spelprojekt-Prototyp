@@ -14,16 +14,29 @@ TcpServerApplication::~TcpServerApplication()
 		delete m_tcpListenerProcess;
 	}
 
-	for(unsigned int i = 0; i < m_clientSockets.size(); i++)
+//	for(unsigned int i = 0; i < m_clientSockets.size(); i++)
+//	{
+//		if( m_clientSockets[i] )
+//		{
+//			m_clientSockets[i]->cancel();
+//			m_clientSockets[i]->close();
+//			delete m_clientSockets[i];
+//		}
+//	}
+//	m_clientSockets.clear();
+
+	for(unsigned int i = 0; i < m_messengerProcesses.size(); i++)
 	{
-		if( m_clientSockets[i] )
+		if( m_messengerProcesses[i] )
 		{
-			m_clientSockets[i]->cancel();
-			m_clientSockets[i]->close();
-			delete m_clientSockets[i];
+			m_messengerProcesses[i]->putMessage(
+				new ProcessMessage( MessageType::TERMINATE, this, "byebye" ) );
+			m_messengerProcesses[i]->stop();
+			delete m_messengerProcesses[i];
 		}
 	}
-	m_clientSockets.clear();
+	m_messengerProcesses.clear();
+
 
 	if( m_ioService )
 		delete m_ioService;
@@ -70,12 +83,29 @@ void TcpServerApplication::update()
 
 		if( message->type == MessageType::NEW_CLIENT )
 		{
-			m_clientSockets.push_back( message->socket );
-
+//			m_clientSockets.push_back( message->socket );
+//
 			cout << "Client connected: " <<
 				message->socket->local_endpoint().address().to_string() << ".\n";
+//
+//			message->socket->send( boost::asio::buffer( "Hello!" ) );
 
-			message->socket->send( boost::asio::buffer( "Hello!" ) );
+
+
+
+
+
+
+
+			TcpMessengerProcess* messengerProcess =
+				new TcpMessengerProcess( this, message->socket, m_ioService );
+
+			messengerProcess->start();
+
+			messengerProcess->putMessage( new ProcessMessage(
+				MessageType::NEW_PACKET, this, "Hello_1234" ) );
+
+			m_messengerProcesses.push_back( messengerProcess );
 
 		}
 

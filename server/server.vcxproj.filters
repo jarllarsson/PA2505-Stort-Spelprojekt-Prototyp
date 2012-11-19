@@ -5,16 +5,16 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Process">
-      <UniqueIdentifier>{97d343b7-10ed-4366-90aa-41776447cb95}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ServerApp">
       <UniqueIdentifier>{9b15ff31-94a9-496b-b637-c938daf5fac7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Processes">
+      <UniqueIdentifier>{97d343b7-10ed-4366-90aa-41776447cb95}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TcpListenerProcess.cpp">
-      <Filter>Process</Filter>
+      <Filter>Processes</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Entry</Filter>
@@ -23,18 +23,18 @@
       <Filter>ServerApp</Filter>
     </ClCompile>
     <ClCompile Include="TcpMessengerProcess.cpp">
-      <Filter>Process</Filter>
+      <Filter>Processes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TcpListenerProcess.h">
-      <Filter>Process</Filter>
+      <Filter>Processes</Filter>
     </ClInclude>
     <ClInclude Include="TcpServerApplication.h">
       <Filter>ServerApp</Filter>
     </ClInclude>
     <ClInclude Include="TcpMessengerProcess.h">
-      <Filter>Process</Filter>
+      <Filter>Processes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
