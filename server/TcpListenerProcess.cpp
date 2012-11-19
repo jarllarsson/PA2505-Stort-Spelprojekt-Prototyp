@@ -7,6 +7,7 @@ TcpListenerProcess::TcpListenerProcess( ThreadSafeMessaging* p_parent, int p_por
 	m_socket = NULL;
 	m_acceptor = NULL;
 	m_parent = p_parent;
+	m_port = p_port;
 
 	m_acceptor = new tcp::acceptor( m_ioService,
 		tcp::endpoint( tcp::v4(), p_port ) );
@@ -16,10 +17,11 @@ TcpListenerProcess::~TcpListenerProcess()
 {
 	delete m_acceptor;
 
+	m_ioService.stop();
+
 	if( m_socket )
 		delete m_socket;
 
-	m_ioService.stop();
 }
 
 void TcpListenerProcess::body()
@@ -28,30 +30,24 @@ void TcpListenerProcess::body()
 
 	startAccept();
 
+	cout << "TcpListenerProcess: Started listening on port " << m_port << ".\n";
+
 	while( m_running )
 	{
+		// Poll for new connections.
 		m_ioService.poll();
 
 		while( getMessagesAmount() > 0 )
 		{
 			ProcessMessage* message = popMessage();
 
-			 if( message->message == "exit" )
+			if( message->type == MessageType::TERMINATE )
 				 m_running = false;
 
 			delete message;
 		}
 
 	}
-
-
-	//	cout << "Hello from within the TcpListenerProcess' body\n";
-	//
-	//	acceptConnection( 1337 );
-	//
-	//	cout << "Accepted.\n";
-	//
-	//	sendWelcomeMessage( "*WelcomeMessage*\n" );
 
 }
 
@@ -71,19 +67,10 @@ void TcpListenerProcess::startAccept()
 
 void TcpListenerProcess::handleAccept()
 {
-	if( true )
-	{
-		stringstream ss;
-		ss << "new_client_";
-		ss << m_socket->local_endpoint().address().to_string();
+	m_parent->putMessage( new ProcessMessage(
+		MessageType::NEW_CLIENT, this, m_socket ) );
 
-		string msg = ss.str();
-
-		m_parent->putMessage( new ProcessMessage(
-			msg, this ) );
-
-//		cout << msg << endl;
-	}
+	m_socket = NULL;
 
 
 	// After call-back is handled, a new callback should be started.

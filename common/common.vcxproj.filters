@@ -22,8 +22,11 @@
     <Filter Include="Process\Safe Messaging">
       <UniqueIdentifier>{b24319ed-81d3-4a46-b653-cd5eac21eb8b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Process\Safe Messaging\ProcessEvent">
+    <Filter Include="Process\Safe Messaging\ProcessMessages">
       <UniqueIdentifier>{157c40a1-ae43-4270-9e68-fa81918d0259}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Process\Safe Messaging\ProcessMessages\base">
+      <UniqueIdentifier>{b389f857-2f2b-47c8-8be3-c747a26c4048}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -36,11 +39,11 @@
     <ClInclude Include="QueueList.h">
       <Filter>Lists</Filter>
     </ClInclude>
-    <ClInclude Include="ProcessMessage.h">
-      <Filter>Process\Safe Messaging\ProcessEvent</Filter>
-    </ClInclude>
     <ClInclude Include="ThreadSafeMessaging.h">
       <Filter>Process\Safe Messaging</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessMessage.h">
+      <Filter>Process\Safe Messaging\ProcessMessages\base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
