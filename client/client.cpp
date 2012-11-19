@@ -62,6 +62,7 @@ int main()
 
 		while( true )
 		{
+			boost::this_thread::sleep( boost::posix_time::millisec(1) );
 			char inputCharacter = _getch();
 
 			if( inputCharacter == 'q' )

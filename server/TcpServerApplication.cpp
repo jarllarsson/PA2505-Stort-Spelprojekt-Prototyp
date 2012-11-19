@@ -39,6 +39,7 @@ void TcpServerApplication::run()
 
 	while( m_running )
 	{
+		boost::this_thread::sleep( boost::posix_time::millisec(1) );
 		update();
 	}
 

@@ -35,6 +35,8 @@ void TcpListenerProcess::body()
 
 	while( m_running )
 	{
+		boost::this_thread::sleep( boost::posix_time::millisec(1) );
+
 		// Poll for new connections.
 		m_ioService->poll();
 

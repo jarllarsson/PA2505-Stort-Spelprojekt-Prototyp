@@ -36,6 +36,7 @@ void TcpMessageListenerProcess::body()
 	// HACK: should give sync problems... Doesn't work using mutex for some reason.
 	while( m_running )
 	{
+		boost::this_thread::sleep( boost::posix_time::millisec(1) );
 	}
 //	// Blocking receive on socket.
 //	m_asyncDataLength = m_activeSocket->receive( boost::asio::buffer(
