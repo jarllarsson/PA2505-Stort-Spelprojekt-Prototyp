@@ -14,17 +14,6 @@ TcpServerApplication::~TcpServerApplication()
 		delete m_tcpListenerProcess;
 	}
 
-//	for(unsigned int i = 0; i < m_clientSockets.size(); i++)
-//	{
-//		if( m_clientSockets[i] )
-//		{
-//			m_clientSockets[i]->cancel();
-//			m_clientSockets[i]->close();
-//			delete m_clientSockets[i];
-//		}
-//	}
-//	m_clientSockets.clear();
-
 	for(unsigned int i = 0; i < m_messengerProcesses.size(); i++)
 	{
 		if( m_messengerProcesses[i] )
@@ -81,7 +70,7 @@ void TcpServerApplication::update()
 	{
 		ProcessMessage* message = popMessage();
 
-		if( message->type == MessageType::NEW_CLIENT )
+		if( message->type == MessageType::CLIENT_CONNECTED )
 		{
 //			m_clientSockets.push_back( message->socket );
 //
@@ -106,8 +95,12 @@ void TcpServerApplication::update()
 				MessageType::NEW_PACKET, this, "Hello_1234" ) );
 
 			m_messengerProcesses.push_back( messengerProcess );
-
 		}
+		else if( message->type == MessageType::CLIENT_DISCONNECTED )
+		{
+			cout << "Disconnected!\n";
+		}
+
 
 		delete message;
 	}

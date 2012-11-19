@@ -71,7 +71,7 @@ void TcpListenerProcess::startAccept()
 void TcpListenerProcess::handleAccept()
 {
 	m_parent->putMessage( new ProcessMessage(
-		MessageType::NEW_CLIENT, this, m_socket ) );
+		MessageType::CLIENT_CONNECTED, this, m_socket ) );
 
 	m_socket = NULL;
 

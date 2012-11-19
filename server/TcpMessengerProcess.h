@@ -19,6 +19,8 @@ private:
 	tcp::socket* m_activeSocket;
 	boost::asio::io_service* m_ioService;
 
+	ThreadSafeMessaging* m_parent;
+
 	QueueList<string> m_packetQueue;
 
 	char* m_asyncData;
@@ -34,8 +36,8 @@ public:
 	void body();
 
 private:
-	void handleReceive(const boost::system::error_code& error,
-		size_t bytes_transferred);
+	void handleReceive( const boost::system::error_code& error,
+		size_t p_bytesTransferred );
 
 };
 

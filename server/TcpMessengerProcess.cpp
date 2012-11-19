@@ -5,6 +5,7 @@ TcpMessengerProcess::TcpMessengerProcess(
 	tcp::socket* p_activeSocket,
 	boost::asio::io_service* p_ioService )
 {
+	m_parent = p_parent;
 	m_activeSocket = p_activeSocket;
 	m_ioService = p_ioService;
 }
@@ -32,7 +33,7 @@ void TcpMessengerProcess::body()
 	m_activeSocket->async_receive(
 		boost::asio::buffer( m_asyncData, m_asyncBufferSize ),
 		boost::bind( &TcpMessengerProcess::handleReceive, this,
-		error,
+		boost::asio::placeholders::error,
 		boost::asio::placeholders::bytes_transferred));
 
 	m_ioService->run_one();
@@ -56,21 +57,33 @@ void TcpMessengerProcess::body()
 	}
 }
 
-void TcpMessengerProcess::handleReceive(const boost::system::error_code& error,
-		size_t bytes_transferred)
+void TcpMessengerProcess::handleReceive( const boost::system::error_code& error,
+		size_t p_bytesTransferred )
 {
 	if( error == boost::asio::error::eof )
 	{
-		cout << "Connection closed.\n";
+		// Connection closed cleanly. // TEST THIS!!
+	}
+	else if( error == boost::asio::error::connection_reset )
+	{
+		// (Connection aborted)
+
+		m_parent->putMessage( new ProcessMessage(
+			MessageType::CLIENT_DISCONNECTED, this, "aborted" ) );
+
+		m_running = false;
+
 	}
 	else if( error )
 	{
-		cout << "Error: " << error.message();
+		throw boost::system::system_error( error );
 	}
 	else
 	{
-
-		cout << m_asyncData << endl;
+		if( p_bytesTransferred > 0 )
+		{
+			cout << m_asyncData << endl;
+		}
 	}
 
 }
