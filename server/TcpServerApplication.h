@@ -20,6 +20,7 @@ using namespace boost::asio::ip;
 class TcpServerApplication: public ThreadSafeMessaging
 {
 private:
+	boost::asio::io_service* m_ioService;
 	vector< tcp::socket* > m_clientSockets; // Replace this with "client-processes".
 
 	bool m_running;

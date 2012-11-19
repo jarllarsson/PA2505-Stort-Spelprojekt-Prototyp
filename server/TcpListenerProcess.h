@@ -22,7 +22,7 @@ private:
 	tcp::socket* m_socket;
 
 	tcp::acceptor* m_acceptor;
-	boost::asio::io_service m_ioService;
+	boost::asio::io_service* m_ioService;
 	int m_port;
 
 	ThreadSafeMessaging* m_parent;
@@ -30,7 +30,8 @@ private:
 	bool m_running;
 
 public:
-	TcpListenerProcess( ThreadSafeMessaging* p_parent, int p_port );
+	TcpListenerProcess( ThreadSafeMessaging* p_parent, int p_port,
+		boost::asio::io_service* p_ioService );
 	~TcpListenerProcess();
 
 	void body();

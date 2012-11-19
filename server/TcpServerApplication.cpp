@@ -3,6 +3,7 @@
 TcpServerApplication::TcpServerApplication()
 {
 	m_running = false;
+	m_ioService = NULL;
 }
 
 TcpServerApplication::~TcpServerApplication()
@@ -17,10 +18,15 @@ TcpServerApplication::~TcpServerApplication()
 	{
 		if( m_clientSockets[i] )
 		{
+			m_clientSockets[i]->cancel();
+			m_clientSockets[i]->close();
 			delete m_clientSockets[i];
 		}
 	}
 	m_clientSockets.clear();
+
+	if( m_ioService )
+		delete m_ioService;
 }
 
 void TcpServerApplication::run()
@@ -45,7 +51,9 @@ void TcpServerApplication::stop()
 
 void TcpServerApplication::init()
 {
-	m_tcpListenerProcess = new TcpListenerProcess( this, 1337 );
+	m_ioService = new boost::asio::io_service();
+
+	m_tcpListenerProcess = new TcpListenerProcess( this, 1337, m_ioService );
 	m_tcpListenerProcess->start();
 
 	m_tcpListenerProcessMessaging = 
@@ -65,10 +73,10 @@ void TcpServerApplication::update()
 
 			cout << "Client connected: " <<
 				message->socket->local_endpoint().address().to_string() << ".\n";
-		}
 
-//		cout << "Message to TcpServerApplication: " <<
-//			message->message << endl;
+			message->socket->send( boost::asio::buffer( "Hello!" ) );
+
+		}
 
 		delete message;
 	}

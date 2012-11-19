@@ -1,23 +1,24 @@
 #include "TcpListenerProcess.h"
 
 
-TcpListenerProcess::TcpListenerProcess( ThreadSafeMessaging* p_parent, int p_port )
+TcpListenerProcess::TcpListenerProcess( ThreadSafeMessaging* p_parent, int p_port,
+	boost::asio::io_service* p_ioService )
 {
 	m_running = false;
 	m_socket = NULL;
 	m_acceptor = NULL;
 	m_parent = p_parent;
 	m_port = p_port;
+	m_ioService = p_ioService;
 
-	m_acceptor = new tcp::acceptor( m_ioService,
-		tcp::endpoint( tcp::v4(), p_port ) );
+	m_acceptor = new tcp::acceptor( *m_ioService, tcp::endpoint( tcp::v4(), p_port ) );
 }
 
 TcpListenerProcess::~TcpListenerProcess()
 {
 	delete m_acceptor;
 
-	m_ioService.stop();
+	m_ioService->stop();
 
 	if( m_socket )
 		delete m_socket;
@@ -35,7 +36,7 @@ void TcpListenerProcess::body()
 	while( m_running )
 	{
 		// Poll for new connections.
-		m_ioService.poll();
+		m_ioService->poll();
 
 		while( getMessagesAmount() > 0 )
 		{
@@ -53,9 +54,9 @@ void TcpListenerProcess::body()
 
 void TcpListenerProcess::startAccept()
 {
-	m_ioService.reset();
+	m_ioService->reset();
 
-	m_socket = new tcp::socket( m_ioService );
+	m_socket = new tcp::socket( *m_ioService );
 	
 	tcp::acceptor::non_blocking_io nonBlocking( true );
 	m_acceptor->io_control( nonBlocking );
