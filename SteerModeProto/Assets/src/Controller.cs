@@ -9,7 +9,7 @@ public class Controller : MonoBehaviour
     public float m_turnspeed;
     public float m_movespeed;
     public float m_power;
-    private Vector3 m_thrustVec;
+    public Vector3 m_thrustVec;
 
 	// Use this for initialization
 	void Start () 
