@@ -15,8 +15,7 @@ public class Shooter : MonoBehaviour {
 	void Update () {
         if (Input.GetAxis("Fire1")>0.0f && m_release<0.0f)
         {
-            Transform bullet = Instantiate(m_bulletPrefab, m_origin.position, m_origin.rotation) as Transform;
-            Debug.Log(m_owner.m_thrustVec);
+            Transform bullet = Instantiate(m_bulletPrefab, m_origin.position+m_origin.forward*30.0f, m_origin.rotation) as Transform;
             bullet.GetComponent<Mover>().AddSpd(m_owner.m_thrustVec);
             m_release = 0.2f;
         }

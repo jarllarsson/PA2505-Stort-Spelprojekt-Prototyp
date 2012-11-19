@@ -23,6 +23,5 @@ public class Mover : MonoBehaviour {
     public void AddSpd(Vector3 vec)
     {
         m_speed = transform.forward * m_speedModifier + vec;
-        Debug.Log("! "+m_speed);
     }
 }
