@@ -64,20 +64,24 @@ void TcpListenerProcess::startAccept()
 	m_acceptor->io_control( nonBlocking );
 
 	m_acceptor->async_accept( *m_socket,
-		boost::bind( &TcpListenerProcess::handleAccept, this) );
+		boost::bind( &TcpListenerProcess::handleAccept, this,
+		boost::asio::placeholders::error ) );
 	
 }
 
-void TcpListenerProcess::handleAccept()
+void TcpListenerProcess::handleAccept( const boost::system::error_code& p_error )
 {
-	m_parent->putMessage( new ProcessMessage(
-		MessageType::CLIENT_CONNECTED, this, m_socket ) );
+	if( !p_error )
+	{
+		m_parent->putMessage( new ProcessMessage(
+			MessageType::CLIENT_CONNECTED, this, m_socket ) );
 
-	m_socket = NULL;
+		m_socket = NULL;
 
 
-	// After call-back is handled, a new callback should be started.
-	startAccept();
+		// After call-back is handled, a new callback should be started.
+		startAccept();
+	}
 }
 
 

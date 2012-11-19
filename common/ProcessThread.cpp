@@ -30,10 +30,10 @@ void ProcessThread::stop()
 {
 	if( m_thread )
 	{
-		// HACK: temporary solution.
-		m_mutex.lock();
-		m_running = false;
-		m_mutex.unlock();
+//		// HACK: temporary solution.
+//		m_mutex.lock();
+//		m_running = false;
+//		m_mutex.unlock();
 
 		// TODO: send "exit" message/event to the process.
 

@@ -57,18 +57,28 @@ int main()
 		tcp::socket::non_blocking_io nonBlocking( true );
 		socket.io_control( nonBlocking );
 
+		socket.send( boost::asio::buffer( "troll" ) );
+		socket.send( boost::asio::buffer( "troll" ) );
+		socket.send( boost::asio::buffer( "troll" ) );
+		socket.send( boost::asio::buffer( "troll" ) );
+
 		ProcessThread* messageListener = new TcpMessageListenerProcess( &socket, &ioService );
 		messageListener->start();
 
-		while( true )
+		bool running = true;
+		while( running )
 		{
 			boost::this_thread::sleep( boost::posix_time::millisec(1) );
-			char inputCharacter = _getch();
-
-			if( inputCharacter == 'q' )
+			cin.clear();
+			if( _kbhit() )
 			{
-				ioService.stop();
-				break;
+				char inputCharacter = _getch();
+
+				if( inputCharacter == 27 )
+				{
+					ioService.stop();
+					running = false;
+				}
 			}
 		}
 

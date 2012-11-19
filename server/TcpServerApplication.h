@@ -12,8 +12,8 @@
 #include <QueueList.h>
 #include <ProcessMessage.h>
 
-#include "TcpListenerProcess.h"
-#include "TcpMessengerProcess.h"
+#include <TcpListenerProcess.h>
+#include <TcpMessengerProcess.h>
 
 using namespace std;
 using namespace boost::asio::ip;

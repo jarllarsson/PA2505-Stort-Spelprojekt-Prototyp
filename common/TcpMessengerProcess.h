@@ -4,7 +4,7 @@
 #include <boost\asio.hpp>
 #include <string>
 
-#include <ThreadSafeMessaging.h>
+#include "ThreadSafeMessaging.h"
 
 #include "QueueList.h"
 #include "ProcessThread.h"
@@ -36,7 +36,12 @@ public:
 	void body();
 
 private:
-	void handleReceive( const boost::system::error_code& error,
+	void startReceive();
+
+	void handleReceive( const boost::system::error_code& p_error,
+		size_t p_bytesTransferred );
+
+	void handleSend( const boost::system::error_code& p_error,
 		size_t p_bytesTransferred );
 
 };

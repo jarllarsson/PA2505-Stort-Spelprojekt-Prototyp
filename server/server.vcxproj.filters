@@ -13,28 +13,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TcpListenerProcess.cpp">
-      <Filter>Processes</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Entry</Filter>
-    </ClCompile>
     <ClCompile Include="TcpServerApplication.cpp">
       <Filter>ServerApp</Filter>
     </ClCompile>
-    <ClCompile Include="TcpMessengerProcess.cpp">
-      <Filter>Processes</Filter>
+    <ClCompile Include="server_main.cpp">
+      <Filter>Entry</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TcpListenerProcess.h">
-      <Filter>Processes</Filter>
-    </ClInclude>
     <ClInclude Include="TcpServerApplication.h">
       <Filter>ServerApp</Filter>
-    </ClInclude>
-    <ClInclude Include="TcpMessengerProcess.h">
-      <Filter>Processes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

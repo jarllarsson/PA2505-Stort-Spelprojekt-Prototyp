@@ -6,7 +6,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="client.cpp">
+    <ClCompile Include="client_main.cpp">
       <Filter>Entry</Filter>
     </ClCompile>
   </ItemGroup>

@@ -79,14 +79,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ProcessThread.cpp" />
+    <ClCompile Include="TcpListenerProcess.cpp" />
     <ClCompile Include="TcpMessageListenerProcess.cpp" />
+    <ClCompile Include="TcpMessengerProcess.cpp" />
     <ClCompile Include="ThreadSafeMessaging.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ProcessMessage.h" />
     <ClInclude Include="ProcessThread.h" />
     <ClInclude Include="QueueList.h" />
+    <ClInclude Include="TcpListenerProcess.h" />
     <ClInclude Include="TcpMessageListenerProcess.h" />
+    <ClInclude Include="TcpMessengerProcess.h" />
     <ClInclude Include="ThreadSafeMessaging.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -45,6 +45,12 @@
     <ClInclude Include="ProcessMessage.h">
       <Filter>Process\Safe Messaging\ProcessMessages\base</Filter>
     </ClInclude>
+    <ClInclude Include="TcpListenerProcess.h">
+      <Filter>Process</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpMessengerProcess.h">
+      <Filter>Process</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ProcessThread.cpp">
@@ -55,6 +61,12 @@
     </ClCompile>
     <ClCompile Include="ThreadSafeMessaging.cpp">
       <Filter>Process\Safe Messaging</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpListenerProcess.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpMessengerProcess.cpp">
+      <Filter>Process</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

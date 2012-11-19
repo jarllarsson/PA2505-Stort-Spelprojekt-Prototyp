@@ -8,6 +8,9 @@ TcpServerApplication::TcpServerApplication()
 
 TcpServerApplication::~TcpServerApplication()
 {
+	m_tcpListenerProcessMessaging->putMessage(
+		new ProcessMessage( MessageType::TERMINATE, this, "exit" ) );
+
 	if( m_tcpListenerProcess )
 	{
 		m_tcpListenerProcess->stop();
@@ -20,6 +23,7 @@ TcpServerApplication::~TcpServerApplication()
 		{
 			m_messengerProcesses[i]->putMessage(
 				new ProcessMessage( MessageType::TERMINATE, this, "byebye" ) );
+
 			m_messengerProcesses[i]->stop();
 			delete m_messengerProcesses[i];
 		}
@@ -92,13 +96,17 @@ void TcpServerApplication::update()
 			messengerProcess->start();
 
 			messengerProcess->putMessage( new ProcessMessage(
-				MessageType::NEW_PACKET, this, "Hello_1234" ) );
+				MessageType::SEND_PACKET, this, "Hello_1234" ) );
 
 			m_messengerProcesses.push_back( messengerProcess );
 		}
 		else if( message->type == MessageType::CLIENT_DISCONNECTED )
 		{
 			cout << "Disconnected!\n";
+		}
+		else if( message->type == MessageType::RECEIVE_PACKET )
+		{
+			cout << "Receive: '" << message->message << "'.\n";
 		}
 
 
@@ -111,8 +119,6 @@ void TcpServerApplication::update()
 		if( _getch() == 27 )
 		{
 			m_running = false;
-			m_tcpListenerProcessMessaging->putMessage(
-				new ProcessMessage( MessageType::TERMINATE, this, "exit" ) );
 		}
 	}
 }

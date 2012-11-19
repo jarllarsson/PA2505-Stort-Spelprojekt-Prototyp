@@ -4,9 +4,9 @@
 #include <boost\asio.hpp>
 #include <boost\array.hpp>
 
-#include <ProcessThread.h>
-#include <ThreadSafeMessaging.h>
-#include <ProcessMessage.h>
+#include "ProcessThread.h"
+#include "ThreadSafeMessaging.h"
+#include "ProcessMessage.h"
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -39,7 +39,7 @@ public:
 private:
 
 	void startAccept();
-	void handleAccept();
+	void handleAccept( const boost::system::error_code& p_error );
 
 
 //	void acceptConnection( int p_port );
