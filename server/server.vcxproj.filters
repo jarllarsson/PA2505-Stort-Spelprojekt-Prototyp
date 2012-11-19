@@ -22,6 +22,9 @@
     <ClCompile Include="TcpServerApplication.cpp">
       <Filter>ServerApp</Filter>
     </ClCompile>
+    <ClCompile Include="TcpMessengerProcess.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TcpListenerProcess.h">
@@ -29,6 +32,9 @@
     </ClInclude>
     <ClInclude Include="TcpServerApplication.h">
       <Filter>ServerApp</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpMessengerProcess.h">
+      <Filter>Process</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

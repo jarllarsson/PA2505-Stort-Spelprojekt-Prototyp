@@ -78,10 +78,12 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TcpListenerProcess.cpp" />
+    <ClCompile Include="TcpMessengerProcess.cpp" />
     <ClCompile Include="TcpServerApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TcpListenerProcess.h" />
+    <ClInclude Include="TcpMessengerProcess.h" />
     <ClInclude Include="TcpServerApplication.h" />
   </ItemGroup>
   <ItemGroup>
