@@ -18,7 +18,7 @@ public class Shooter : MonoBehaviour {
             Transform bullet = Instantiate(m_bulletPrefab, m_origin.position, m_origin.rotation) as Transform;
             Debug.Log(m_owner.m_thrustVec);
             bullet.GetComponent<Mover>().AddSpd(m_owner.m_thrustVec);
-            m_release = 0.4f;
+            m_release = 0.2f;
         }
 
         m_release -= Time.deltaTime;
