@@ -2,6 +2,7 @@
 #define THREAD_SAFE_MESSAGING_H
 
 #include <boost/thread.hpp>
+
 #include "ProcessMessage.h"
 #include "QueueList.h"
 

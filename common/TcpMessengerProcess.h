@@ -1,11 +1,11 @@
 #ifndef TCP_MESSENGER_PROCESS_H
 #define TCP_MESSENGER_PROCESS_H
 
-#include <boost\asio.hpp>
 #include <string>
 
-#include "ThreadSafeMessaging.h"
+#include <boost/asio.hpp>
 
+#include "ThreadSafeMessaging.h"
 #include "QueueList.h"
 #include "ProcessThread.h"
 
