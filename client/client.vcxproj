@@ -74,11 +74,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="client_main.cpp" />
+    <ClCompile Include="TcpClientApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\common\common.vcxproj">
       <Project>{0cd67b2b-807e-4cad-940c-e354a7356630}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TcpClientApplication.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

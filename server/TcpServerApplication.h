@@ -4,6 +4,7 @@
 #include <vector>
 #include <conio.h>
 #include <typeinfo>
+#include <sstream>
 
 #include <boost\asio.hpp>
 #include <boost\array.hpp>
@@ -27,6 +28,7 @@ private:
 
 	bool m_running;
 
+	// Refactor: merge into only TcpListenerProcess.
 	ProcessThread* m_tcpListenerProcess;
 	ThreadSafeMessaging* m_tcpListenerProcessMessaging;
 

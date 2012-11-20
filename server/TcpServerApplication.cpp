@@ -83,26 +83,23 @@ void TcpServerApplication::update()
 //
 //			message->socket->send( boost::asio::buffer( "Hello!" ) );
 
-
-
-
-
-
-
-
 			TcpMessengerProcess* messengerProcess =
 				new TcpMessengerProcess( this, message->socket, m_ioService );
 
 			messengerProcess->start();
 
+			stringstream ss;
+			ss << "Hello new user " << messengerProcess->getId();
+
 			messengerProcess->putMessage( new ProcessMessage(
-				MessageType::SEND_PACKET, this, "Hello_1234" ) );
+				MessageType::SEND_PACKET, this, ss.str() ) );
 
 			m_messengerProcesses.push_back( messengerProcess );
 		}
 		else if( message->type == MessageType::CLIENT_DISCONNECTED )
 		{
-			cout << "Disconnected!\n";
+			cout << "User " << dynamic_cast<ProcessThread*>(message->sender)->getId()
+				<< " has disconnected.\n";
 		}
 		else if( message->type == MessageType::RECEIVE_PACKET )
 		{
