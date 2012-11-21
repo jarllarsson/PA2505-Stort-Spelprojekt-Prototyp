@@ -3,11 +3,13 @@
 #include <D3DX10.h>
 #include <XAudio2.h>
 #include <XAudio2fx.h>
+#include <X3DAudio.h>
 #include "SoundEffect.h"
 #include "SFX.h"
 #include "SoundSetup.h"
-#include <vector>
 #include "LowPass.h"
+
+#include <vector>
 
 class SoundManager
 {

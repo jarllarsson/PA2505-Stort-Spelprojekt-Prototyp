@@ -2,6 +2,7 @@
 #include <XAPO.h>
 #include <XAPOFX.h>
 #include <XAPOBase.h>
+#include <X3DAudio.h>
 
 SoundManager* SoundManager::sInstance = 0;
 
