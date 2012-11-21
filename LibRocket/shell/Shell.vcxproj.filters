@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="API">
+      <UniqueIdentifier>{b27fff2e-28fc-4697-baea-db6acbbbb855}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{9881038f-e856-493a-b5e2-a53dd8c36a26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{8b6cac17-2442-443d-a5e9-ce645ae9f1ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File">
+      <UniqueIdentifier>{acdf4c80-0888-4f5f-ae9f-986d1e0b9ce2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Shell.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ShellWin32.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ShellFileInterface.cpp">
+      <Filter>File</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InputWin32.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ShellSystemInterface.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Shell.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ShellFileInterface.h">
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\InputWin32.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ShellSystemInterface.h">
+      <Filter>System</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
