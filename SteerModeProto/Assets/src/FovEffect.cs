@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+// Zoom-effect on camera
 public class FovEffect : MonoBehaviour {
     public Camera m_cam;
     public float m_multiplier=1.0f;

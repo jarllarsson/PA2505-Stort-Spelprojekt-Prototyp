@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Mover : MonoBehaviour {
+public class BulletBehaviour : MonoBehaviour {
     public Vector3 m_speed=Vector3.zero;
     public float m_speedModifier = 300.0f;
     public float m_dieTick = 100.0f;
