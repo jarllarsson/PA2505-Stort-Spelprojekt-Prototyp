@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Sound">
+      <UniqueIdentifier>{0608c2c5-c186-4f08-ae81-6dd46bc76fb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Logic">
+      <UniqueIdentifier>{4df8dab5-8678-41de-a6b4-f9ee05e7156b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controller">
+      <UniqueIdentifier>{eaabd82e-fca8-434b-b349-c35986db7ffa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphic">
+      <UniqueIdentifier>{54d97897-aa91-4992-bb30-e2cf7076f60c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sound\3DEffect">
+      <UniqueIdentifier>{6c7f0854-2f60-425a-bdf6-33d071a3ba62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sound\EffectFilter">
+      <UniqueIdentifier>{43c7b783-9dc0-494b-8157-a635e42a8c36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphic\Objects">
+      <UniqueIdentifier>{043d9653-7f5a-4c92-94a4-f8650ed063c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphic\Objects\Simple">
+      <UniqueIdentifier>{05d29850-5224-42dd-9dec-c4f31b84ad06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphic\Objects\Complex">
+      <UniqueIdentifier>{3ae9f383-4856-4568-bc20-1c4d1ca7bd0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphic\Renderer">
+      <UniqueIdentifier>{7b43d693-5a26-4197-a06c-d7281f12e52f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sound\Enum">
+      <UniqueIdentifier>{68f261f5-ff17-434e-87ca-e0d4960ca476}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sound\Effect">
+      <UniqueIdentifier>{a520e09e-1d2c-4dd4-8cab-226278614b4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structs">
+      <UniqueIdentifier>{1afd3bcb-b60e-4818-83fc-c24dea41f96d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UGLY_CODE">
+      <UniqueIdentifier>{d5a1a2f4-6615-4333-b416-8721fe89e34b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structs\Component">
+      <UniqueIdentifier>{0f6099fd-07d0-4480-b20b-b2f6292cf399}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sound\Callback">
+      <UniqueIdentifier>{5acc8caa-9698-499b-8edc-1d3f58402bd0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SoundManager.cpp">
+      <Filter>Source Files\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameLogic.cpp">
+      <Filter>Source Files\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Camera.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DeferredRender.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\KeyListener.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Font.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\HUD.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SFX.cpp">
+      <Filter>Source Files\Sound\3DEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Heightmap.cpp">
+      <Filter>Source Files\Graphic\Objects\Complex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Box.cpp">
+      <Filter>Source Files\Graphic\Objects\Simple</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ObjectRenderer.cpp">
+      <Filter>Source Files\Graphic\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SoundEffect.cpp">
+      <Filter>Source Files\Sound\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\LowPass.cpp">
+      <Filter>Source Files\Sound\EffectFilter</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MovementComp.cpp">
+      <Filter>Source Files\Structs\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SoundComp.cpp">
+      <Filter>Source Files\Structs\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\InputHandler.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\SoundManager.h">
+      <Filter>Source Files\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameLogic.h">
+      <Filter>Source Files\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Camera.h">
+      <Filter>Source Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DeferredRender.h">
+      <Filter>Source Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\d3dUtil.h">
+      <Filter>Source Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\KeyListener.h">
+      <Filter>Source Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SFX.h">
+      <Filter>Source Files\Sound\3DEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Font.h">
+      <Filter>Source Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\HUD.h">
+      <Filter>Source Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\LowPass.h">
+      <Filter>Source Files\Sound\EffectFilter</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Heightmap.h">
+      <Filter>Source Files\Graphic\Objects\Complex</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Box.h">
+      <Filter>Source Files\Graphic\Objects\Simple</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ObjectRenderer.h">
+      <Filter>Source Files\Graphic\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Object.h">
+      <Filter>Source Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SoundSetup.h">
+      <Filter>Source Files\Sound\Enum</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SoundEffect.h">
+      <Filter>Source Files\Sound\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SVertex.h">
+      <Filter>Source Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vertex.h">
+      <Filter>Source Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Globals.h">
+      <Filter>Source Files\UGLY_CODE</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Component.h">
+      <Filter>Source Files\Structs\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MovementComp.h">
+      <Filter>Source Files\Structs\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SoundComp.h">
+      <Filter>Source Files\Structs\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\InputHandler.h">
+      <Filter>Source Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\VoiceCallback.h">
+      <Filter>Source Files\Sound\Callback</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FX\DefferedShader.fx">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="FX\effect.fx">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>
