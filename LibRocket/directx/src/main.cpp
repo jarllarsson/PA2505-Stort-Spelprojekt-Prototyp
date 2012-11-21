@@ -61,7 +61,7 @@ int APIENTRY WinMain(HINSTANCE ROCKET_UNUSED(instance_handle), HINSTANCE ROCKET_
 {
 	// Generic OS initialisation, creates a window and attaches OpenGL.
 	if (!Shell::Initialise("./") ||
-		!Shell::OpenWindow("Rocket Invaders from Mars",width,height))
+		!Shell::OpenWindow("The One Game",width,height))
 	{
 		Shell::Shutdown();
 		return -1;
