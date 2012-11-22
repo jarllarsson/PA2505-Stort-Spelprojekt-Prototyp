@@ -23,10 +23,11 @@ void Texture::clear()
 	//SAFE_RELEASE(fxVar_texture);
 }
 
-void Texture::setDeviceAndFx(ID3D10Device* _device, ID3D10Effect* _effect)
+void Texture::setDeviceAndFx( ID3D11Device* p_device, ID3D11DeviceContext* p_context, ID3DX11Effect* p_effect )
 {
-	device = _device;
-	effect = _effect;
+	device = p_device;
+	m_context = p_context;
+	effect = p_effect;
 }
 
 void Texture::setTexture(string _resourceFolder, string _texFileName)
@@ -52,17 +53,20 @@ void Texture::setDynamic(int _width, int _height)
 	desc_texture.ArraySize = 1;
 	desc_texture.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 	desc_texture.SampleDesc.Count = 1;
-	desc_texture.Usage = D3D10_USAGE_DYNAMIC;
-	desc_texture.BindFlags = D3D10_BIND_SHADER_RESOURCE;
-	desc_texture.CPUAccessFlags = D3D10_CPU_ACCESS_WRITE;
+	desc_texture.Usage = D3D11_USAGE_DYNAMIC;
+	desc_texture.BindFlags = D3D11_BIND_SHADER_RESOURCE;
+	desc_texture.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 
 	HR(device->CreateTexture2D(&desc_texture, NULL, &tex_texture));
 }
 
 void Texture::setPixel(const byte* _source, int _x, int _y)
 {
-	D3D10_MAPPED_TEXTURE2D mappedTex;
-	tex_texture->Map( D3D10CalcSubresource(0, 0, 1), D3D10_MAP_WRITE_DISCARD, 0, &mappedTex );
+	//D3D10_MAPPED_TEXTURE2D mappedTex;
+	D3D11_MAPPED_SUBRESOURCE mappedTex;
+	//tex_texture->Map( D3D11CalcSubresource(0, 0, 1), D3D11_MAP_WRITE_DISCARD, 0, &mappedTex );
+	m_context->Map( tex_texture, D3D11CalcSubresource(0, 0, 1), D3D11_MAP_WRITE_DISCARD, 0, &mappedTex );
+
 
 	UCHAR* pTexels = (UCHAR*)mappedTex.pData;
 	UINT rowStart = _x * mappedTex.RowPitch;
@@ -73,13 +77,15 @@ void Texture::setPixel(const byte* _source, int _x, int _y)
 	pTexels[rowStart + colStart + 2] = _source[rowStart + colStart + 2];  // Blue
 	pTexels[rowStart + colStart + 3] = _source[rowStart + colStart + 3];  // Alpha
 
-	tex_texture->Unmap( D3D10CalcSubresource(0, 0, 1) );
+	//tex_texture->Unmap( D3D11CalcSubresource(0, 0, 1) );
+	m_context->Unmap( tex_texture, D3D11CalcSubresource(0, 0, 1) );
 }
 
 void Texture::setAllPixels(const byte* _source)
 {
-	D3D10_MAPPED_TEXTURE2D mappedTex;
-	tex_texture->Map( D3D10CalcSubresource(0, 0, 1), D3D10_MAP_WRITE_DISCARD, 0, &mappedTex );
+	//D3D11_MAPPED_TEXTURE2D mappedTex;	
+	D3D11_MAPPED_SUBRESOURCE mappedTex;
+	m_context->Map( tex_texture, D3D11CalcSubresource(0, 0, 1), D3D11_MAP_WRITE_DISCARD, 0, &mappedTex );
 
 	UCHAR* texels = (UCHAR*)mappedTex.pData;
 	for( UINT row = 0; row < desc_texture.Height; row++ )
@@ -96,18 +102,18 @@ void Texture::setAllPixels(const byte* _source)
 		}
 	}
 
-	tex_texture->Unmap( D3D10CalcSubresource(0, 0, 1) );
+	m_context->Unmap( tex_texture, D3D11CalcSubresource(0, 0, 1) );
 }
 
 void Texture::initTexture()
 {
 	if(tex_texture != NULL)
 	{
-		D3D10_SHADER_RESOURCE_VIEW_DESC srvDesc;
-        srvDesc.Format = desc_texture.Format;
-        srvDesc.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2D;
-        srvDesc.Texture2D.MipLevels = desc_texture.MipLevels;
-        srvDesc.Texture2D.MostDetailedMip = desc_texture.MipLevels -1;
+		D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc;
+		srvDesc.Format = desc_texture.Format;
+		srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+		srvDesc.Texture2D.MipLevels = desc_texture.MipLevels;
+		srvDesc.Texture2D.MostDetailedMip = desc_texture.MipLevels -1;
 
 		HR(device->CreateShaderResourceView(tex_texture, &srvDesc, &srv_texture));
 	}
@@ -116,7 +122,7 @@ void Texture::initTexture()
 		wstring wstrTemp(texFileName.length(), L' ');
 		copy(texFileName.begin(), texFileName.end(), wstrTemp.begin());
 
-		HR(D3DX10CreateShaderResourceViewFromFile(device, wstrTemp.c_str(), NULL, NULL, &srv_texture, NULL));
+		HR(D3DX11CreateShaderResourceViewFromFile(device, wstrTemp.c_str(), NULL, NULL, &srv_texture, NULL));
 	}
 }
 

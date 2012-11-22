@@ -30,7 +30,7 @@
 #include <Rocket/Debugger.h>
 #include <Input.h>
 #include <Shell.h>
-#include "RenderInterfaceDx10.h"
+#include "RenderInterfaceDx11.h"
 #include "EventManager.h"
 #include "ElementGame.h"
 #include "EventInstancer.h"
@@ -40,10 +40,25 @@
 #include "GameStats.h"
 
 Rocket::Core::Context* context = NULL;
-RenderInterfaceDx10* renderDirectX10 = NULL;
+RenderInterfaceDx11* renderDirectX10 = NULL;
 
 const static int width = 1280;
 const static int height = 720;
+
+//#pragma comment(lib, "d3d11.lib")
+//#pragma comment(lib, "d3dcompiler.lib")
+//#pragma comment (lib,"dxerr.lib")
+//
+//#ifdef _DEBUG
+//#pragma comment(lib, "d3dx11d.lib")
+//#pragma comment(lib, "Effects11D.lib")
+//#pragma comment(lib, "d3dx10d.lib")
+//#else
+//#pragma comment(lib, "d3dx11.lib")
+//#pragma comment(lib, "Effects11.lib")
+//#pragma comment(lib, "d3dx10.lib")
+//#endif
+
 
 void GameLoop()
 {
@@ -71,7 +86,7 @@ int APIENTRY WinMain(HINSTANCE ROCKET_UNUSED(instance_handle), HINSTANCE ROCKET_
 	GameStats::init();
 
 	// Install our DirectX render interface into Rocket.
-	renderDirectX10 = new RenderInterfaceDx10((HWND)Shell::GetWindowHandle(), 0,0, width, height);
+	renderDirectX10 = new RenderInterfaceDx11((HWND)Shell::GetWindowHandle(), 0,0, width, height);
 	Rocket::Core::SetRenderInterface(renderDirectX10);
 
 	// Syteminterface handles file reading
