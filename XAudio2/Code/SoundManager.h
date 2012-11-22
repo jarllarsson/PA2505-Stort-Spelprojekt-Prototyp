@@ -14,7 +14,6 @@
 
 #include <XAudio2.h>
 #include <XAudio2fx.h>
-#include <X3DAudio.h>
 #include <string>
 #include "SoundEnums.h"
 
@@ -30,6 +29,8 @@ private:
 	IXAudio2MasteringVoice* m_masterVoice;
 	XAUDIO2_BUFFER m_buffer;
 	WAVEFORMATEXTENSIBLE m_wfx;
+
+	float m_masterVolume;
 
 	static SoundManager* s_instance;
 private:
@@ -49,9 +50,20 @@ public:
 	/// This handles all the calculations 3D positional calculations
 	/// \returns void
 	///-----------------------------------------------------------------------------------
-	void update();
+	void	update();
 
-	void PlaySound( string p_filePath);
+	///-----------------------------------------------------------------------------------
+	/// Is only made to play the techno track "Techno_1.wav"
+	/// \param string p_filePath
+	/// \returns void
+	///-----------------------------------------------------------------------------------
+	void	playSound( string p_filePath);
+
+	///-----------------------------------------------------------------------------------
+	/// Returns a reference to the master volume 
+	/// \returns float*
+	///-----------------------------------------------------------------------------------
+	float*	getMasterVolume();
 	HRESULT findChunk(	HANDLE p_file, DWORD p_fourcc, DWORD& p_dwChunkSize, 
 						DWORD& p_dwChunkDataPosition);
 	HRESULT readChunkData(	HANDLE p_file, void* p_buffer, DWORD p_bufferSize, 

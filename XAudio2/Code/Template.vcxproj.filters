@@ -77,6 +77,12 @@
     <Filter Include="Source Files\Sound">
       <UniqueIdentifier>{3d1b8658-ba04-4af0-a2c0-2f903d7a07cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Sound\Sound">
+      <UniqueIdentifier>{2a09a164-ad2f-44fe-ab5e-7e7b81846a98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sound\3D Sound">
+      <UniqueIdentifier>{93fbff76-e864-4955-bd50-83c6c9b00a87}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp">
@@ -162,6 +168,12 @@
     </ClCompile>
     <ClCompile Include="SoundManager.cpp">
       <Filter>Source Files\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEffect.cpp">
+      <Filter>Source Files\Sound\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="SFX.cpp">
+      <Filter>Source Files\Sound\3D Sound</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -293,6 +305,12 @@
     </ClInclude>
     <ClInclude Include="SoundEnums.h">
       <Filter>Source Files\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEffect.h">
+      <Filter>Source Files\Sound\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="SFX.h">
+      <Filter>Source Files\Sound\3D Sound</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

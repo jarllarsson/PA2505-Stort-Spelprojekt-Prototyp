@@ -78,7 +78,7 @@ HRESULT RenderWindow::Init( HINSTANCE hInstance, int nCmdShow)
 	settings.farPlane		= 500.0f;
 	settings.pitch			= 1.0f;
 	settings.heading		= 0;
-	settings.pos			= D3DXVECTOR3(30,40,-40);
+	settings.pos			= D3DXVECTOR3(30,10,-5);
 
 	gameCamera = new Camera(mMovementListener,settings);
 
@@ -99,6 +99,7 @@ HRESULT RenderWindow::Init( HINSTANCE hInstance, int nCmdShow)
 	if( FAILED( InitObjects() ) )
 		return E_FAIL;
 
+	SoundManager::getInstance();
 	InitAntTweakBar();
 
 	mMovementListener->AddKeyListener('K',WHENPRESSED,m_viewDepthBuffer->getSwitchRenderSE());
@@ -143,10 +144,10 @@ HRESULT RenderWindow::InitWindow( HINSTANCE hInstance, int nCmdShow )
 		WS_OVERLAPPEDWINDOW,
 		0,
 		0,
-		SCREEN_WIDTH,
-		SCREEN_HEIGHT,
-		NULL,
-		NULL,
+		SCREEN_WIDTH+16,
+		SCREEN_HEIGHT+38,
+		0,
+		0,
 		hInstance,
 		this)))
 	{
@@ -348,9 +349,6 @@ HRESULT RenderWindow::InitObjects()
 	activeChannels=D3DXVECTOR4(1,1,1,1);
 	m_viewLightPass = mObjectFactory->CreateAScreenAlignedQuad(min,max,techniqueDeferred->GetLightBuffer(),activeChannels);
 
-
-	SoundManager::getInstance();
-
 	return hr;
 }
 
@@ -372,11 +370,16 @@ void RenderWindow::InitAntTweakBar()
 	TwAddVarRW(myBar, "Use VSYNC", TW_TYPE_BOOL8, &m_useVSYNC, "group=Overall");
 	TwAddVarRW(myBar, "Frustum Rot", TW_TYPE_FLOAT, m_frustum->GetRotation(), "group=QuadTree step=0.0001");
 	TwAddVarRW(myBar, "LightColor", TW_TYPE_COLOR4F, mPointLight->GetColor(), "group=Light");
-
+	TwAddVarRW(myBar, 
+		"Master Volume", 
+		TW_TYPE_FLOAT, 
+		SoundManager::getInstance()->getMasterVolume(),
+		"group=Overall min=0 max=1 step=0.001");
 }
 
 HRESULT RenderWindow::Update( float deltaTime )
 {
+	SoundManager::getInstance()->update();
 	gameCamera->Update(deltaTime);
 	mBox->Update(deltaTime);
 	mPointLight->Update(deltaTime);
@@ -502,7 +505,13 @@ void RenderWindow::Run()
 			prevTimeStamp = currTimeStamp;
 		}
 	}
+
+	// HACK: Seem to be some issue with access violation when destroying the soundmanager
+	// where AntTweakBar is still using the variable supplied from SoundManager? Sleep
+	// allows the XAudio thread to quit peacefully.
 	TwTerminate();
+	Sleep(1);
+	SoundManager::destroy();
 }
 
 char* RenderWindow::FeatureLevelToString(D3D_FEATURE_LEVEL featureLevel)

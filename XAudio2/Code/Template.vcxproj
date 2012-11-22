@@ -223,9 +223,11 @@
     <ClCompile Include="Quadtree.cpp" />
     <ClCompile Include="RenderWindow.cpp" />
     <ClCompile Include="ScreenAligned.cpp" />
+    <ClCompile Include="SFX.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderFactory.cpp" />
     <ClCompile Include="ShadowMaps.cpp" />
+    <ClCompile Include="SoundEffect.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="SSAO.cpp" />
     <ClCompile Include="Triangle.cpp" />
@@ -241,6 +243,8 @@
     <ClInclude Include="CA_Event.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Deferred.h" />
+    <ClInclude Include="SFX.h" />
+    <ClInclude Include="SoundEffect.h" />
     <ClInclude Include="SoundEnums.h" />
     <ClInclude Include="Frustum.h" />
     <ClInclude Include="Heightmap.h" />

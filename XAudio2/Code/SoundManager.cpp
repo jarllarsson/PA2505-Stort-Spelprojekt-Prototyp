@@ -6,8 +6,11 @@ SoundManager::SoundManager()
 {
 	m_soundDevice = NULL;
 	m_masterVoice = NULL;
+	m_masterVolume = 0;
 
 	init();
+
+	m_masterVoice->GetVolume(&m_masterVolume);
 }
 
 SoundManager::~SoundManager()
@@ -31,7 +34,7 @@ void SoundManager::destroy()
 
 void SoundManager::update()
 {
-
+	m_masterVoice->SetVolume(m_masterVolume,0);
 }
 
 HRESULT SoundManager::init()
@@ -60,12 +63,12 @@ HRESULT SoundManager::init()
 	}
 
 
-	PlaySound("../Sound/Techno_1.wav");
+	playSound("../Sound/Techno_1.wav");
 
 	return hr;
 }
 
-void SoundManager::PlaySound( string p_filePath )
+void SoundManager::playSound( string p_filePath )
 {
 	if (FAILED ( initFile(p_filePath) ) )
 		return; //Bad file
@@ -205,4 +208,9 @@ HRESULT SoundManager::initFile(string p_filePath)
 		return S_FALSE;
 
 	return hr;
+}
+
+float* SoundManager::getMasterVolume()
+{
+	return &m_masterVolume;
 }
