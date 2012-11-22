@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\RenderInterfaceDx10.cpp" />
+    <ClCompile Include="src\Texture.cpp" />
+    <ClCompile Include="src\Event.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventHandler.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventHandlerOptions.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventHandlerStartGame.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventInstancer.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventManager.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ElementGame.cpp" />
+    <ClCompile Include="src\GameStats.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\RenderInterfaceDx10.h" />
+    <ClInclude Include="src\Texture.h" />
+    <ClInclude Include="src\Utils.h" />
+    <ClInclude Include="src\VertexTexture.h" />
+    <ClInclude Include="src\Event.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventHandler.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventHandlerOptions.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventHandlerStartGame.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventInstancer.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EventManager.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ElementGame.h" />
+    <ClInclude Include="src\GameStats.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Event">
+      <UniqueIdentifier>{60f706aa-8b71-4ee1-a0de-cc7f232213ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{fa367089-9835-4262-8942-e1e1cd5f2f89}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
