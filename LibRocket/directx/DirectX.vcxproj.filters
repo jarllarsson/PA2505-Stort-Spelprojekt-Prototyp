@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\RenderInterfaceDx10.cpp" />
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\Event.cpp">
       <Filter>Event</Filter>
@@ -26,9 +25,9 @@
     <ClCompile Include="src\GameStats.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="src\RenderInterfaceDx11.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\RenderInterfaceDx10.h" />
     <ClInclude Include="src\Texture.h" />
     <ClInclude Include="src\Utils.h" />
     <ClInclude Include="src\VertexTexture.h" />
@@ -54,6 +53,7 @@
     <ClInclude Include="src\GameStats.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="src\RenderInterfaceDx11.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Event">

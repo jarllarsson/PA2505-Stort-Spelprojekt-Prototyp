@@ -40,10 +40,10 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../External/;$(DXSDK_DIR)/Include;../Shell/src;$(IncludePath)</IncludePath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../External/Rocket/bin/;$(DXSDK_DIR)/Lib/x86/;../Shell/$(Configuration)/;$(LibraryPath)</LibraryPath>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../External/;$(DXSDK_DIR)/Include;../Shell/src;$(IncludePath)</IncludePath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../External/Rocket/bin/;$(DXSDK_DIR)/Lib/x86/;../Shell/$(Configuration)/;$(LibraryPath)</LibraryPath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../External/;$(DXSDK_DIR)/Include;../Shell/src;../External/D3D/Include;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../External/Rocket/bin/;$(DXSDK_DIR)/Lib/x86/;../Shell/$(Configuration)/;../External/D3D/Lib/x86;$(LibraryPath)</LibraryPath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../External/;$(DXSDK_DIR)/Include;../Shell/src;../External/D3D/Include;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../External/Rocket/bin/;$(DXSDK_DIR)/Lib/x86/;../Shell/$(Configuration)/;../External/D3D/Lib/x86;$(LibraryPath)</LibraryPath>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)_d</TargetName>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
   </PropertyGroup>
@@ -60,7 +60,7 @@
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>RocketCore_d.lib;RocketDebugger_d.lib;RocketControls_d.lib;Shell.lib;opengl32.lib;d3d10.lib;d3dx10.lib;d3dx10d.lib;dxerr.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>RocketCore_d.lib;RocketDebugger_d.lib;RocketControls_d.lib;Shell.lib;d3dx10d.lib;d3d10.lib;d3dx11d.lib;d3d11.lib;dxerr.lib;dxguid.lib;Effects11D.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>Debug\$(ProjectName)_d.exe</OutputFile>
       <AdditionalLibraryDirectories>../External/Rocket/bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -79,7 +79,7 @@
       <WarningLevel>Level4</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>RocketCore.lib;RocketControls.lib;RocketDebugger.lib;shell.lib;opengl32.lib;d3d10.lib;d3dx10.lib;d3dx10d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>RocketCore.lib;RocketControls.lib;RocketDebugger.lib;shell.lib;d3d10.lib;d3dx10.lib;d3d11.lib;d3dx11.lib;Effects11.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>Release\$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>../External/Rocket/bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
@@ -99,7 +99,7 @@
     <ClCompile Include="src\EventManager.cpp" />
     <ClCompile Include="src\GameStats.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\RenderInterfaceDx10.cpp" />
+    <ClCompile Include="src\RenderInterfaceDx11.cpp" />
     <ClCompile Include="src\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -111,7 +111,7 @@
     <ClInclude Include="src\EventInstancer.h" />
     <ClInclude Include="src\EventManager.h" />
     <ClInclude Include="src\GameStats.h" />
-    <ClInclude Include="src\RenderInterfaceDx10.h" />
+    <ClInclude Include="src\RenderInterfaceDx11.h" />
     <ClInclude Include="src\Texture.h" />
     <ClInclude Include="src\Utils.h" />
     <ClInclude Include="src\VertexTexture.h" />

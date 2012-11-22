@@ -1,0 +1,34 @@
+﻿Build started 2012-11-22 15:02:38.
+     1>Project "C:\Users\Mattias\Documents\Programmering\Prototyping\LibRocket\PA2505-Stort-Spelprojekt-Prototyp\LibRocket\directx\DirectX.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\DirectX.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W4 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt src\RenderInterfaceDx11.cpp src\main.cpp
+         RenderInterfaceDx11.cpp
+     1>src\RenderInterfaceDx11.cpp(563): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
+     1>src\RenderInterfaceDx11.cpp(564): warning C4244: '=' : conversion from 'int' to 'FLOAT', possible loss of data
+     1>src\RenderInterfaceDx11.cpp(599): warning C4189: 'l_pError' : local variable is initialized but not referenced
+         main.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Debug\DirectX_d.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:../External/Rocket/bin RocketCore_d.lib RocketDebugger_d.lib RocketControls_d.lib Shell.lib d3dx10d.lib d3d10.lib d3dx11d.lib d3d11.lib dxerr.lib dxguid.lib Effects11D.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\DirectX_d.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Mattias\Documents\Programmering\Prototyping\LibRocket\PA2505-Stort-Spelprojekt-Prototyp\LibRocket\directx\Debug\DirectX_d.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"C:\Users\Mattias\Documents\Programmering\Prototyping\LibRocket\PA2505-Stort-Spelprojekt-Prototyp\LibRocket\directx\Debug\DirectX_d.lib" /MACHINE:X86 Debug\ElementGame.obj
+         Debug\Event.obj
+         Debug\EventHandler.obj
+         Debug\EventHandlerOptions.obj
+         Debug\EventHandlerStartGame.obj
+         Debug\EventInstancer.obj
+         Debug\EventManager.obj
+         Debug\GameStats.obj
+         Debug\main.obj
+         Debug\RenderInterfaceDx11.obj
+         Debug\Texture.obj
+     1>Effects11D.lib(EffectAPI.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+            Creating library C:\Users\Mattias\Documents\Programmering\Prototyping\LibRocket\PA2505-Stort-Spelprojekt-Prototyp\LibRocket\directx\Debug\DirectX_d.lib and object C:\Users\Mattias\Documents\Programmering\Prototyping\LibRocket\PA2505-Stort-Spelprojekt-Prototyp\LibRocket\directx\Debug\DirectX_d.exp
+     1>Effects11D.lib(EffectLoad.obj) : error LNK2019: unresolved external symbol _D3DGetInputSignatureBlob@12 referenced in function "protected: long __thiscall D3DX11Effects::CEffectLoader::BuildShaderBlock(struct D3DX11Effects::SShaderBlock *)" (?BuildShaderBlock@CEffectLoader@D3DX11Effects@@IAEJPAUSShaderBlock@2@@Z)
+     1>Effects11D.lib(EffectLoad.obj) : error LNK2019: unresolved external symbol _D3DReflect@16 referenced in function "protected: long __thiscall D3DX11Effects::CEffectLoader::BuildShaderBlock(struct D3DX11Effects::SShaderBlock *)" (?BuildShaderBlock@CEffectLoader@D3DX11Effects@@IAEJPAUSShaderBlock@2@@Z)
+     1>Debug\DirectX_d.exe : fatal error LNK1120: 2 unresolved externals
+     1>Done Building Project "C:\Users\Mattias\Documents\Programmering\Prototyping\LibRocket\PA2505-Stort-Spelprojekt-Prototyp\LibRocket\directx\DirectX.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.55
