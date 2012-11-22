@@ -7,7 +7,7 @@ SoundEffect::SoundEffect(IXAudio2* pEngine, string pFileName,bool pLoopPlayback)
 	init(pLoopPlayback, pFileName);
 
 	HRESULT hr;
-	hr = pEngine->CreateSourceVoice(&source, (WAVEFORMATEX*)&wfx,0,XAUDIO2_DEFAULT_FREQ_RATIO,NULL,NULL,NULL);
+	hr = pEngine->CreateSourceVoice(&m_source, (WAVEFORMATEX*)&wfx,0,XAUDIO2_DEFAULT_FREQ_RATIO,NULL,NULL,NULL);
 }
 SoundEffect::~SoundEffect()
 {
@@ -55,16 +55,16 @@ void SoundEffect::init(bool pLoopPlayback, string p_filePath)
 HRESULT SoundEffect::play()
 {
 	HRESULT hr= S_OK;
-	hr = source->FlushSourceBuffers();
-	hr = source->SubmitSourceBuffer(&buffer);
-	hr = source->Start(0);
+	hr = m_source->FlushSourceBuffers();
+	hr = m_source->SubmitSourceBuffer(&buffer);
+	hr = m_source->Start(0);
 	playing = true;
 	return hr;
 }
 HRESULT SoundEffect::stop()
 {
 	HRESULT hr = S_OK;
-	hr = source->Stop();
+	hr = m_source->Stop();
 	playing = false;
 	return hr;
 }

@@ -1,29 +1,32 @@
-#ifndef SFX_h__
-#define SFX_h__
+// =======================================================================================
+//                                      SFX
+// =======================================================================================
+
+///---------------------------------------------------------------------------------------
+/// \brief	SFX is made to handle 3D-positional sounds only
+///        
+/// # SFX
+/// TODO: Write details.
+/// Created on: 22-11-2012 
+///---------------------------------------------------------------------------------------
+#ifndef SFX_H
+#define SFX_H
+
 #include "stdafx.h"
 #include "SoundEffect.h"
 
 class SFX : public SoundEffect
 {
 private:
-	D3DXVECTOR3 pos;
-private:
-	void calculateAndApply3DEffect();
-	void calculateAndApplyVolume();
-	float* calculateDolbyProLogicIIMatrixEncoding(float pPan,float pLeft,float pRight);
+	X3DAUDIO_EMITTER	m_emitter;
+	X3DAUDIO_CONE		m_emitterCone;
+	X3DAUDIO_DSP_SETTINGS m_dspSettings;
+	X3DAUDIO_HANDLE*	m_X3DAudioInstance;
 public:
-	SFX(D3DXVECTOR3 pPos,IXAudio2* pEngine,string pFileName,bool pLoopPlayback);
+	SFX(X3DAUDIO_EMITTER p_emitter,X3DAUDIO_HANDLE* p_X3DAudioInstance,IXAudio2* pEngine,
+		string pFileName,bool pLoopPlayback);
 	~SFX();
 	void update();
-	
-	virtual void calculateOutputMatrix(float pan);
-
-	void setPos(D3DXVECTOR3 pPos){
-		pos = pPos;
-	}
-	D3DXVECTOR3 getPos(){
-		return pos;
-	}
 };
 
-#endif // 3DSFX_h__
+#endif // SFX_H

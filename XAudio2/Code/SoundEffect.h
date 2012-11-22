@@ -3,6 +3,7 @@
 
 #include <XAudio2.h>
 #include <string>
+#include <X3DAudio.h>
 #include "SoundEnums.h"
 
 using namespace std;
@@ -11,7 +12,7 @@ class SoundEffect
 {
 protected:
 	HANDLE file;
-	IXAudio2SourceVoice* source;
+	IXAudio2SourceVoice* m_source;
 	WAVEFORMATEXTENSIBLE wfx;
 	XAUDIO2_BUFFER buffer;
 	bool playing;
@@ -24,7 +25,7 @@ public:
 	HRESULT stop();
 	virtual void update();
 	IXAudio2SourceVoice* getSource(){
-		return source;
+		return m_source;
 	}
 	HRESULT findChunk(HANDLE hFile, DWORD fourcc,DWORD& dwChunkSize, DWORD& dwChunkDataPosition);
 	HRESULT readChunkData(HANDLE hFile, void* buffer, DWORD bufferSize, DWORD bufferOffset);
