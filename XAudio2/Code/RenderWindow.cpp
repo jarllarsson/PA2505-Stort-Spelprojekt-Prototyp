@@ -64,6 +64,8 @@ RenderWindow::~RenderWindow()
 	SAFE_DELETE(m_viewLightPass);
 
 	SAFE_DELETE(m_shadowMap);
+
+	SoundManager::destroy();
 }
 
 HRESULT RenderWindow::Init( HINSTANCE hInstance, int nCmdShow)
@@ -374,7 +376,7 @@ void RenderWindow::InitAntTweakBar()
 		"Master Volume", 
 		TW_TYPE_FLOAT, 
 		SoundManager::getInstance()->getMasterVolume(),
-		"group=Overall min=0 max=1 step=0.001");
+		"group=Overall min=0 max=10 step=0.001 precision=3");
 }
 
 HRESULT RenderWindow::Update( float deltaTime )
@@ -510,8 +512,7 @@ void RenderWindow::Run()
 	// where AntTweakBar is still using the variable supplied from SoundManager? Sleep
 	// allows the XAudio thread to quit peacefully.
 	TwTerminate();
-	Sleep(1);
-	SoundManager::destroy();
+	Sleep(100);
 }
 
 char* RenderWindow::FeatureLevelToString(D3D_FEATURE_LEVEL featureLevel)

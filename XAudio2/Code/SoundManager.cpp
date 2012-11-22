@@ -4,9 +4,10 @@ SoundManager* SoundManager::s_instance = NULL;
 
 SoundManager::SoundManager()
 {
-	m_soundDevice = NULL;
-	m_masterVoice = NULL;
-	m_masterVolume = 0;
+	m_soundDevice	= NULL;
+	m_masterVoice	= NULL;
+	m_music			= NULL;
+	m_masterVolume	= 0;
 
 	init();
 
@@ -62,8 +63,8 @@ HRESULT SoundManager::init()
 		return hr;
 	}
 
-
-	playSound("../Sound/Techno_1.wav");
+	m_music = new SoundEffect(m_soundDevice,"../Sound/Techno_1.wav",true);
+	m_music->play();
 
 	return hr;
 }

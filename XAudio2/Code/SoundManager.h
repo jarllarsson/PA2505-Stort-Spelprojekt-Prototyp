@@ -14,8 +14,10 @@
 
 #include <XAudio2.h>
 #include <XAudio2fx.h>
+#include <X3DAudio.h>
 #include <string>
 #include "SoundEnums.h"
+#include "SoundEffect.h"
 
 using namespace std;
 
@@ -30,8 +32,11 @@ private:
 	XAUDIO2_BUFFER m_buffer;
 	WAVEFORMATEXTENSIBLE m_wfx;
 
+	X3DAUDIO_LISTENER m_listener;
+
 	float m_masterVolume;
 
+	SoundEffect* m_music;
 	static SoundManager* s_instance;
 private:
 	SoundManager();

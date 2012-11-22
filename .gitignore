@@ -9,3 +9,6 @@
 *.pdb
 *.exe
 *.ilk
+/XAudio2/Bin/x86/*.pdb
+/XAudio2/Bin/x86/*.exe
+/XAudio2/Bin/x86/*.ilk
