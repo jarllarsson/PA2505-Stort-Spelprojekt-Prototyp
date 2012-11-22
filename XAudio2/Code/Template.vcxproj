@@ -226,6 +226,7 @@
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderFactory.cpp" />
     <ClCompile Include="ShadowMaps.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="SSAO.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
@@ -240,6 +241,7 @@
     <ClInclude Include="CA_Event.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Deferred.h" />
+    <ClInclude Include="SoundEnums.h" />
     <ClInclude Include="Frustum.h" />
     <ClInclude Include="Heightmap.h" />
     <ClInclude Include="EventInterface.h" />
@@ -266,6 +268,7 @@
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderFactory.h" />
     <ClInclude Include="ShadowMaps.h" />
+    <ClInclude Include="SoundManager.h" />
     <ClInclude Include="SSAO.h" />
     <ClInclude Include="SSAO_parms.h" />
     <ClInclude Include="stdafx.h" />

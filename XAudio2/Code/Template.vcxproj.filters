@@ -62,9 +62,6 @@
     <Filter Include="Source Files\Graphics\PostProcessing">
       <UniqueIdentifier>{706f2a88-52a3-45ea-8393-70cf7b2e7890}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Graphics\AntTweak">
-      <UniqueIdentifier>{d28d92a5-e0f4-452a-9a8f-e70b3fb347dd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Objects\Quads">
       <UniqueIdentifier>{8427c80e-f64c-4f39-ad76-02cf8eb832c9}</UniqueIdentifier>
     </Filter>
@@ -76,6 +73,9 @@
     </Filter>
     <Filter Include="Source Files\Structs">
       <UniqueIdentifier>{ca40b542-845a-4b9c-a691-a7a04093c95b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sound">
+      <UniqueIdentifier>{3d1b8658-ba04-4af0-a2c0-2f903d7a07cb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +159,9 @@
     </ClCompile>
     <ClCompile Include="Intersection.cpp">
       <Filter>Source Files\Intersection</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>Source Files\Sound</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -284,6 +287,12 @@
     </ClInclude>
     <ClInclude Include="Intersection.h">
       <Filter>Source Files\Intersection</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>Source Files\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEnums.h">
+      <Filter>Source Files\Sound</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

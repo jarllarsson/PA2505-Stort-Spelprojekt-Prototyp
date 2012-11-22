@@ -24,6 +24,7 @@
 #include "ShadowMaps.h"
 #include"SSAO_parms.h"
 #include <vector>
+#include "SoundManager.h"
 
 using namespace std;
 

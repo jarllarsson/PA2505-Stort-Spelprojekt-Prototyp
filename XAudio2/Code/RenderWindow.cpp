@@ -348,6 +348,9 @@ HRESULT RenderWindow::InitObjects()
 	activeChannels=D3DXVECTOR4(1,1,1,1);
 	m_viewLightPass = mObjectFactory->CreateAScreenAlignedQuad(min,max,techniqueDeferred->GetLightBuffer(),activeChannels);
 
+
+	SoundManager::getInstance();
+
 	return hr;
 }
 

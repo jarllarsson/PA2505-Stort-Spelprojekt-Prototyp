@@ -15,13 +15,21 @@
 #include <XAudio2.h>
 #include <XAudio2fx.h>
 #include <X3DAudio.h>
-#include <strsafe.h> // Used to get the FAILED
+#include <string>
+#include "SoundEnums.h"
+
+using namespace std;
 
 class SoundManager
 {
 private:
+	HANDLE m_file;
+
 	IXAudio2* m_soundDevice;
+	IXAudio2SourceVoice* m_sourceVoice;
 	IXAudio2MasteringVoice* m_masterVoice;
+	XAUDIO2_BUFFER m_buffer;
+	WAVEFORMATEXTENSIBLE m_wfx;
 
 	static SoundManager* s_instance;
 private:
@@ -30,9 +38,9 @@ private:
 
 	///-----------------------------------------------------------------------------------
 	/// Is called when s_instance == NULL and it initialize the SoundManager
-	/// \returns void
+	/// \returns HRESULT
 	///-----------------------------------------------------------------------------------
-	void	init();
+	HRESULT	init();
 public:
 	static SoundManager* getInstance();
 	static void destroy();
@@ -42,6 +50,13 @@ public:
 	/// \returns void
 	///-----------------------------------------------------------------------------------
 	void update();
+
+	void PlaySound( string p_filePath);
+	HRESULT findChunk(	HANDLE p_file, DWORD p_fourcc, DWORD& p_dwChunkSize, 
+						DWORD& p_dwChunkDataPosition);
+	HRESULT readChunkData(	HANDLE p_file, void* p_buffer, DWORD p_bufferSize, 
+							DWORD p_bufferOffset);
+	HRESULT initFile(string p_filePath);
 };
 
 #endif // SOUNDMANAGER_H
