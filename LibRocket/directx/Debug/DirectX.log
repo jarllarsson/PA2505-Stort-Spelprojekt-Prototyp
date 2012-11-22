@@ -1,0 +1,30 @@
+﻿Build started 2012-11-21 18:07:38.
+     1>Project "C:\Project\Prototyper\LibRocket\directx\DirectX.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\DirectX.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W4 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt src\main.cpp
+         main.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Debug\DirectX_d.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:../External/Rocket/bin RocketCore_d.lib RocketDebugger_d.lib RocketControls_d.lib Shell.lib opengl32.lib d3d10.lib d3dx10.lib d3dx10d.lib dxerr.lib dxguid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\DirectX_d.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Project\Prototyper\LibRocket\directx\Debug\DirectX_d.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"C:\Project\Prototyper\LibRocket\directx\Debug\DirectX_d.lib" /MACHINE:X86 Debug\ElementGame.obj
+         Debug\Event.obj
+         Debug\EventHandler.obj
+         Debug\EventHandlerOptions.obj
+         Debug\EventHandlerStartGame.obj
+         Debug\EventInstancer.obj
+         Debug\EventManager.obj
+         Debug\GameStats.obj
+         Debug\main.obj
+         Debug\RenderInterfaceDx10.obj
+         Debug\Texture.obj
+         DirectX.vcxproj -> C:\Project\Prototyper\LibRocket\directx\Debug\DirectX_d.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"Debug\DirectX_d.exe;#1" /manifest Debug\DirectX_d.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\DirectX.unsuccessfulbuild".
+         Touching "Debug\DirectX.lastbuildstate".
+     1>Done Building Project "C:\Project\Prototyper\LibRocket\directx\DirectX.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.33

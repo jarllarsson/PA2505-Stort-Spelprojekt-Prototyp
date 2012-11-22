@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Objects">
+      <UniqueIdentifier>{69d21edb-b5d2-41be-b7c8-9cff8120377f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\HeightMap">
+      <UniqueIdentifier>{9fff6a78-3bf2-41c7-b3ca-258f7735ac49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Triangle">
+      <UniqueIdentifier>{44359580-ca61-400d-8b1e-db20fbea6ac8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics">
+      <UniqueIdentifier>{b87dc9ee-78dc-4e88-ab9f-61da79ff4ce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Box">
+      <UniqueIdentifier>{4edf5aa6-d9a2-4b84-83a5-0da115f449a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics\Window">
+      <UniqueIdentifier>{3be1578d-015b-49db-beb1-abc1fbb3a6ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Movement">
+      <UniqueIdentifier>{5b8f64a2-c3ee-4727-8b10-9980595d151c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Lights">
+      <UniqueIdentifier>{ff9a758f-093f-4356-81fb-8f4f9a432a92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Movement\Camera">
+      <UniqueIdentifier>{a1a5d0f4-7a4a-4b9f-8567-609fc3584cdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components">
+      <UniqueIdentifier>{f96a558d-c4e3-4d98-ae4f-184b650b875c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics\Deferred">
+      <UniqueIdentifier>{0eda1499-8ae7-413b-b4d3-19eaf28fdae8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Handler">
+      <UniqueIdentifier>{c635291b-ce79-4fe8-88e4-013e79aaf6da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics\Shader">
+      <UniqueIdentifier>{aaeaf164-8c51-496e-ac86-5ed8f55043a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Mesh">
+      <UniqueIdentifier>{2c8dafcd-c5b8-4922-b9c6-da3c130c6688}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Frustum">
+      <UniqueIdentifier>{480995ef-099a-4b8b-84fd-8ee606bb8d33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SpatialData">
+      <UniqueIdentifier>{a4ff6a7d-2033-4696-8fd3-2c0f05bf1423}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Intersection">
+      <UniqueIdentifier>{c048a3e7-0f99-4821-84d4-3f9604f6e5c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FACTORIES">
+      <UniqueIdentifier>{2a893074-d7d9-4458-9e1c-81591e96b6ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics\PostProcessing">
+      <UniqueIdentifier>{706f2a88-52a3-45ea-8393-70cf7b2e7890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics\AntTweak">
+      <UniqueIdentifier>{d28d92a5-e0f4-452a-9a8f-e70b3fb347dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Quads">
+      <UniqueIdentifier>{8427c80e-f64c-4f39-ad76-02cf8eb832c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Quads\ScreenAligned">
+      <UniqueIdentifier>{bc481d6c-109b-45ff-84d4-fcf398f20488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shadows">
+      <UniqueIdentifier>{59f6765e-51de-4c8b-aa83-3e450311267a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structs">
+      <UniqueIdentifier>{ca40b542-845a-4b9c-a691-a7a04093c95b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Movement\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Heightmap.cpp">
+      <Filter>Source Files\Objects\HeightMap</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp">
+      <Filter>Source Files\Objects\Triangle</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Buffer.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Deferred.cpp">
+      <Filter>Source Files\Graphics\Deferred</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Source Files\Objects\Box</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderWindow.cpp">
+      <Filter>Source Files\Graphics\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files\Graphics\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyListener.cpp">
+      <Filter>Source Files\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementEventListener.cpp">
+      <Filter>Source Files\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraController.cpp">
+      <Filter>Source Files\Movement\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderFactory.cpp">
+      <Filter>Source Files\FACTORIES</Filter>
+    </ClCompile>
+    <ClCompile Include="Billboard.cpp">
+      <Filter>Source Files\Objects\Quads</Filter>
+    </ClCompile>
+    <ClCompile Include="LightHandler.cpp">
+      <Filter>Source Files\Objects\Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="PointLight.cpp">
+      <Filter>Source Files\Objects\Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectFactory.cpp">
+      <Filter>Source Files\FACTORIES</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementComp.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadObj.cpp">
+      <Filter>Source Files\FACTORIES</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files\Objects\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="AABB.cpp">
+      <Filter>Source Files\Objects\Box</Filter>
+    </ClCompile>
+    <ClCompile Include="Frustum.cpp">
+      <Filter>Source Files\Objects\Frustum</Filter>
+    </ClCompile>
+    <ClCompile Include="Quadtree.cpp">
+      <Filter>Source Files\SpatialData</Filter>
+    </ClCompile>
+    <ClCompile Include="SSAO.cpp">
+      <Filter>Source Files\Graphics\PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenAligned.cpp">
+      <Filter>Source Files\Objects\Quads\ScreenAligned</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadowMaps.cpp">
+      <Filter>Source Files\Shadows</Filter>
+    </ClCompile>
+    <ClCompile Include="Intersection.cpp">
+      <Filter>Source Files\Intersection</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Source Files\Movement\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Heightmap.h">
+      <Filter>Source Files\Objects\HeightMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Source Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>Source Files\Objects\Triangle</Filter>
+    </ClInclude>
+    <ClInclude Include="Buffer.h">
+      <Filter>Source Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Deferred.h">
+      <Filter>Source Files\Graphics\Deferred</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Source Files\Objects\Box</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderWindow.h">
+      <Filter>Source Files\Graphics\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Source Files\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyListener.h">
+      <Filter>Source Files\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementEventListener.h">
+      <Filter>Source Files\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraController.h">
+      <Filter>Source Files\Movement\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="EventInterface.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderFactory.h">
+      <Filter>Source Files\FACTORIES</Filter>
+    </ClInclude>
+    <ClInclude Include="Billboard.h">
+      <Filter>Source Files\Objects\Quads</Filter>
+    </ClInclude>
+    <ClInclude Include="LightHandler.h">
+      <Filter>Source Files\Objects\Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="PointLight.h">
+      <Filter>Source Files\Objects\Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectFactory.h">
+      <Filter>Source Files\FACTORIES</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Source Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementComp.h">
+      <Filter>Source Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadObj.h">
+      <Filter>Source Files\FACTORIES</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Source Files\Objects\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="AABB.h">
+      <Filter>Source Files\Objects\Box</Filter>
+    </ClInclude>
+    <ClInclude Include="Frustum.h">
+      <Filter>Source Files\Objects\Frustum</Filter>
+    </ClInclude>
+    <ClInclude Include="Quadtree.h">
+      <Filter>Source Files\SpatialData</Filter>
+    </ClInclude>
+    <ClInclude Include="MinMax.h">
+      <Filter>Source Files\SpatialData</Filter>
+    </ClInclude>
+    <ClInclude Include="SSAO.h">
+      <Filter>Source Files\Graphics\PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenAligned.h">
+      <Filter>Source Files\Objects\Quads\ScreenAligned</Filter>
+    </ClInclude>
+    <ClInclude Include="SA_event.h">
+      <Filter>Source Files\Objects\Quads\ScreenAligned</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadowMaps.h">
+      <Filter>Source Files\Shadows</Filter>
+    </ClInclude>
+    <ClInclude Include="LightInfo.h">
+      <Filter>Source Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshBuffers.h">
+      <Filter>Source Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshData.h">
+      <Filter>Source Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjData.h">
+      <Filter>Source Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="PVertex.h">
+      <Filter>Source Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Source Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraSettings.h">
+      <Filter>Source Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="CA_Event.h">
+      <Filter>Source Files\Movement\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="SSAO_parms.h">
+      <Filter>Source Files\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="Intersection.h">
+      <Filter>Source Files\Intersection</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

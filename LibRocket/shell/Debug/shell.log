@@ -1,0 +1,29 @@
+﻿Build started 2012-11-21 18:05:24.
+     1>Project "C:\Project\Prototyper\LibRocket\shell\shell.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\shell.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W4 /WX- /Od /Oy- /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt src\Input.cpp src\InputWin32.cpp src\Shell.cpp src\ShellFileInterface.cpp src\ShellSystemInterface.cpp src\ShellWin32.cpp
+         Input.cpp
+         InputWin32.cpp
+         Shell.cpp
+         ShellFileInterface.cpp
+         ShellSystemInterface.cpp
+         ShellWin32.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"C:\Project\Prototyper\LibRocket\shell\Debug\shell.lib" /NOLOGO Debug\Input.obj
+         Debug\InputWin32.obj
+         Debug\Shell.obj
+         Debug\ShellFileInterface.obj
+         Debug\ShellSystemInterface.obj
+         Debug\ShellWin32.obj
+         shell.vcxproj -> C:\Project\Prototyper\LibRocket\shell\Debug\shell.lib
+       FinalizeBuildStatus:
+         Deleting file "Debug\shell.unsuccessfulbuild".
+         Touching "Debug\shell.lastbuildstate".
+     1>Done Building Project "C:\Project\Prototyper\LibRocket\shell\shell.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.91
