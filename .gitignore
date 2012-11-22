@@ -8,3 +8,4 @@
 *.sln
 /EditModeProto/*.suo
 build
+/SteerModeProto/*.suo
