@@ -45,6 +45,21 @@ RenderInterfaceDx11* renderDirectX10 = NULL;
 const static int width = 1280;
 const static int height = 720;
 
+//#pragma comment(lib, "d3d11.lib")
+//#pragma comment(lib, "d3dcompiler.lib")
+//#pragma comment (lib,"dxerr.lib")
+//
+//#ifdef _DEBUG
+//#pragma comment(lib, "d3dx11d.lib")
+//#pragma comment(lib, "Effects11D.lib")
+//#pragma comment(lib, "d3dx10d.lib")
+//#else
+//#pragma comment(lib, "d3dx11.lib")
+//#pragma comment(lib, "Effects11.lib")
+//#pragma comment(lib, "d3dx10.lib")
+//#endif
+
+
 void GameLoop()
 {
 	renderDirectX10->beginFrame();

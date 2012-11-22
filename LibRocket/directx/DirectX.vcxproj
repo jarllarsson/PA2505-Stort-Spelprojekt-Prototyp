@@ -60,7 +60,7 @@
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>RocketCore_d.lib;RocketDebugger_d.lib;RocketControls_d.lib;Shell.lib;d3dx10d.lib;d3d10.lib;d3dx11d.lib;d3d11.lib;dxerr.lib;dxguid.lib;Effects11D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>RocketCore_d.lib;RocketDebugger_d.lib;RocketControls_d.lib;Shell.lib;d3dx10d.lib;d3d10.lib;d3dx11d.lib;d3d11.lib;dxerr.lib;dxguid.lib;Effects11D.lib;d3dcompiler.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>Debug\$(ProjectName)_d.exe</OutputFile>
       <AdditionalLibraryDirectories>../External/Rocket/bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
