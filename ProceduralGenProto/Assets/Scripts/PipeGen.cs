@@ -81,8 +81,9 @@ public class PipeGen : MonoBehaviour {
 
     void GeneratePipeNetwork(int maxDepth)
     {
-        pipeColor += new Color(0.2f, 0, 0);
+        pipeColor += new Color(0.3f, 0, 0);
         Transform[] pipes = GeneratePipesOnCube();
+
         for (int currentDepth = 0; currentDepth < maxDepth; currentDepth++)
         {
             pipeColor += new Color(0.1f, 0, 0);
