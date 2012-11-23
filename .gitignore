@@ -24,3 +24,10 @@
 #/EditModeProto/*.suo
 #build
 #/SteerModeProto/*.suo
+/XAudio2/External/Ant/src/AntTweakBar.sln
+/XAudio2/Bin/x64/Dx11_Dv1416D.exe
+/XAudio2/Bin/x64/Dx11_Dv1416D.ilk
+/XAudio2/Bin/x86/Dx11_Dv1416D.exe
+/XAudio2/Bin/x86/Dx11_Dv1416D.ilk
+/XAudio2/Code/Dx_11.sln.docstates.suo
+/XAudio2/Code/Dx_11.suo
