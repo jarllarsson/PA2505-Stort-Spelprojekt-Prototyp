@@ -60,10 +60,10 @@ public:
 	D3DXMATRIX GetWorldMatrix();
 
 	D3DXVECTOR3 getView(){return lookAt;}
+	D3DXVECTOR3 getForward(){return forward;}
 	D3DXVECTOR3 getUp(){return up;}
 	D3DXVECTOR3 getPos(){return pos;}
 	D3DXVECTOR3 getRight(){return strafeRight;}
-	D3DXVECTOR3 getForward(){return forward;}
 	D3DXVECTOR3* getEye(){return &pos;}
 
 	void addAcceleration(D3DXVECTOR3 acceleration);

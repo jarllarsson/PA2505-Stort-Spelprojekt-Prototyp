@@ -361,7 +361,7 @@ void RenderWindow::InitAntTweakBar()
 
 	TwBar *myBar;
 	myBar = TwNewBar("AntTweakBar");
-	TwAddVarRO(myBar, "Delta Time",TW_TYPE_FLOAT,&m_deltaTime,"");
+	TwAddVarRO(myBar, "Delta Time",TW_TYPE_FLOAT,&m_deltaTime, "group=Overall");
 	TwAddVarRW(myBar, "DrawDebug", TW_TYPE_BOOL8, &m_drawDebug, "group=Overall");
 	TwAddVarRW(myBar, "Scale", TW_TYPE_FLOAT, &m_SSAO->GetSSAOParms()->gScale, "group=SSAO min=0 max=10 step=0.01");
 	TwAddVarRW(myBar, "Bias", TW_TYPE_FLOAT, &m_SSAO->GetSSAOParms()->gBias, "group=SSAO step=0.01");
@@ -377,12 +377,20 @@ void RenderWindow::InitAntTweakBar()
 		TW_TYPE_FLOAT, 
 		SoundManager::getInstance()->getMasterVolume(),
 		"group=Overall min=0 max=10 step=0.001 precision=3");
+	TwAddVarRO(myBar, 
+		"Left", TW_TYPE_FLOAT, 
+		SoundManager::getInstance()->getLeftVolume(),"group=Overall precision=3");
+	TwAddVarRO(myBar, 
+		"Right", TW_TYPE_FLOAT, 
+		SoundManager::getInstance()->getRightVolume(),"group=Overall precision=3");
 }
 
 HRESULT RenderWindow::Update( float deltaTime )
 {
-	SoundManager::getInstance()->update();
 	gameCamera->Update(deltaTime);
+
+	SoundManager::getInstance()->update(gameCamera);
+
 	mBox->Update(deltaTime);
 	mPointLight->Update(deltaTime);
 	for(unsigned int i = 0; i < m_debugDataQuadTree.size();i++)

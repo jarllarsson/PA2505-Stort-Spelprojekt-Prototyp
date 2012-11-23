@@ -44,7 +44,8 @@ const static int WINDOWED		= 1;
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dcompiler.lib")
-#pragma comment (lib,"dxerr.lib")
+#pragma comment(lib, "dxerr.lib")
+#pragma comment(lib, "x3daudio.lib")
 
 #ifdef _DEBUG
 #pragma comment(lib, "d3dx11d.lib")

@@ -83,12 +83,7 @@ void Camera::updateView()
 
 	D3DXVec3TransformCoord(&lookAt,&dV,&rotationMatrix);
 	D3DXVec3TransformCoord(&up,&dU,&rotationMatrix);
-	/*
-	D3DXVECTOR4 tempDirection;
-	D3DXVec4Transform(&tempDirection,&D3DXVECTOR4(0,0,1,0),&rotationMatrix);
 
-	D3DXVECTOR3 direction = D3DXVECTOR3(tempDirection);
-	*/
 	D3DXVec3Normalize(&forward,&lookAt);
 	D3DXVec3Cross(&strafeRight,&up,&lookAt);
 

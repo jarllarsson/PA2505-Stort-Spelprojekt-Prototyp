@@ -11,6 +11,11 @@ SoundEffect::SoundEffect(IXAudio2* pEngine, string pFileName,bool pLoopPlayback)
 }
 SoundEffect::~SoundEffect()
 {
+	if (m_source)
+	{
+		m_source->DestroyVoice();
+		m_source = NULL;
+	}
 }
 void SoundEffect::init(bool pLoopPlayback, string p_filePath)
 {	

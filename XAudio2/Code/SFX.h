@@ -21,12 +21,14 @@ private:
 	X3DAUDIO_EMITTER	m_emitter;
 	X3DAUDIO_CONE		m_emitterCone;
 	X3DAUDIO_DSP_SETTINGS m_dspSettings;
-	X3DAUDIO_HANDLE*	m_X3DAudioInstance;
 public:
-	SFX(X3DAUDIO_EMITTER p_emitter,X3DAUDIO_HANDLE* p_X3DAudioInstance,IXAudio2* pEngine,
-		string pFileName,bool pLoopPlayback);
+	SFX(X3DAUDIO_EMITTER p_emitter, X3DAUDIO_DSP_SETTINGS p_dspSettings, 
+		X3DAUDIO_CONE p_cone, IXAudio2* pEngine,string pFileName,bool pLoopPlayback);
 	~SFX();
 	void update();
+	X3DAUDIO_EMITTER		getEmitter();
+	X3DAUDIO_CONE			getCone();
+	X3DAUDIO_DSP_SETTINGS	getDSPSettings();
 };
 
 #endif // SFX_H
