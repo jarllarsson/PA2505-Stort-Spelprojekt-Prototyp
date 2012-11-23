@@ -8,9 +8,15 @@ public class MouseGrabber : MonoBehaviour
     public int m_connectionMinusLayer=9;
     public int m_connectionPlusLayer=10;
     public Transform m_currentGrabbed = null;
+    public Transform m_currentGrabbedConnectionPlus = null;
     public Transform m_ship; // used to get ship orientation to correctly orient the blocks
 
     private Ray ray=new Ray();
+
+    private float m_moduleCollSphereRad = 0.4f;
+    private bool m_drawDbgSphere = false;
+    private Vector3 m_dbgSpherePos;
+    private Color m_dbgSphereCol;
 
     public enum Mode
     {
@@ -49,6 +55,7 @@ public class MouseGrabber : MonoBehaviour
         RaycastHit hit;
 
         // Cast ray
+        m_drawDbgSphere = false;
         if (Physics.Raycast(ray, out hit, 40.0f, layermask))
         {
             Debug.DrawLine(ray.origin, hit.point, Color.yellow);
@@ -56,33 +63,52 @@ public class MouseGrabber : MonoBehaviour
             {
                 if (grabButton) // if button pressed, grab currently hit object
                 {
-                    m_currentGrabbed = hit.transform;
+                    m_currentGrabbed = hit.collider.transform;
+                    m_currentGrabbed.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+                    m_currentGrabbedConnectionPlus = m_currentGrabbed.FindChild("connection+");
                     m_currentGrabbed.parent = null;
                     m_mode = Mode.GRABBING;
                 }
                 else // if button released, release currently grabbed object
                 {
+                    if (m_currentGrabbed!=null) m_currentGrabbed.gameObject.layer = m_blockLayer;
                     m_currentGrabbed = null;
+                    m_currentGrabbedConnectionPlus = null;
                     m_mode = Mode.FREE;
                 }
             }
             if (m_mode == Mode.GRABBING && m_currentGrabbed) // ray hit(connector) if something is grabbed
-            {
+            {                        
+                Transform other = hit.collider.transform;
+                Vector3 newModulePos = other.position + other.rotation*m_currentGrabbedConnectionPlus.localPosition;
                 if (!grabButton) // if button released, attach on connector
                 {
-                    m_currentGrabbed.position = hit.transform.position;
-                    Transform other = hit.collider.transform;
-                    m_currentGrabbed.rotation = Quaternion.LookRotation(-hit.collider.transform.forward, hit.collider.transform.parent.up); // up vector of socket owner, for example: the ship
+                    // can't collide with anything in block layer(other modules)
+                    if (Physics.CheckSphere(newModulePos, m_moduleCollSphereRad, 1 << m_blockLayer) == false) 
+                    {
+                        if (m_currentGrabbed != null) m_currentGrabbed.gameObject.layer = m_blockLayer;
+                        m_currentGrabbed.position = newModulePos;
+     
+                        // Rotate using collider forward and up vector of socket owner(for example: the ship)
+                        m_currentGrabbed.rotation = Quaternion.LookRotation(-other.forward, other.parent.up); 
 
-                    m_currentGrabbed.parent = hit.transform;
-                    Debug.Log(m_currentGrabbed.name + " attached to " + hit.transform.name);
-                    m_currentGrabbed = null;
-                    m_mode = Mode.FREE;
+                        // attach
+                        m_currentGrabbed.parent = other.transform;
+                        Debug.Log(m_currentGrabbed.name + " attached to " + other.name);
+                        m_currentGrabbed = null;
+                        m_mode = Mode.FREE;
+                    }
                 }
                 else
                 {
+                    m_drawDbgSphere = true;
+                    m_dbgSpherePos = newModulePos;
                     // hint what the final alignment will be if button
-                    // is released
+                    // is released (only for debug purposes right now)
+                    if (Physics.CheckSphere(m_dbgSpherePos, m_moduleCollSphereRad, 1 << m_blockLayer))
+                        m_dbgSphereCol = Color.red;
+                    else
+                        m_dbgSphereCol = Color.green;
                 }
             }
         }
@@ -95,8 +121,10 @@ public class MouseGrabber : MonoBehaviour
             {
                 if (!grabButton) // if button released, release currently grabbed object
                 {
+                    if (m_currentGrabbed != null) m_currentGrabbed.gameObject.layer = m_blockLayer;
                     m_currentGrabbed.parent = null;
                     m_currentGrabbed = null;
+                    m_currentGrabbedConnectionPlus = null;
                     m_mode = Mode.FREE;
                 }
             }
@@ -112,4 +140,13 @@ public class MouseGrabber : MonoBehaviour
                                                          20.0f * Time.deltaTime);
         }
 	}
+
+    void OnDrawGizmos()
+    {
+        if (m_drawDbgSphere)
+        {
+            Gizmos.color = m_dbgSphereCol;
+            Gizmos.DrawWireSphere(m_dbgSpherePos, m_moduleCollSphereRad);
+        }
+    }
 }
