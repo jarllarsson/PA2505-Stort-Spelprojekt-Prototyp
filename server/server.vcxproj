@@ -39,8 +39,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:/Program Files (x86)/boost/boost_1_52;$(SolutionDir)\common;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include</IncludePath>
-    <LibraryPath>C:/Program Files (x86)/boost/boost_1_52/stage/lib;$(SolutionDir)\common\$(Configuration);$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
+    <IncludePath>C:/Program Files (x86)/boost/boost_1_52;$(SolutionDir)\common;$(IncludePath)</IncludePath>
+    <LibraryPath>C:/Program Files (x86)/boost/boost_1_52/stage/lib;$(SolutionDir)\common\$(Configuration);$(LibraryPath)</LibraryPath>
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
